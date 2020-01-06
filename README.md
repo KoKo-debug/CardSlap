@@ -41,8 +41,7 @@ Day 3
 
 Day 4 
 - CSS board with pile size affected by number of cards
-- learn how to place cards in slight radom orietation
+- learn how to place cards in slight random orientation
 
 Day 5
-- annimate flipping card
-- create how to play
+- create how to play with visual images
