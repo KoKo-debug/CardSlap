@@ -33,6 +33,7 @@
 ## Implementation Timeline 
 Day 1 
 - Boilerplate and create deck
+- learn canvas in-depth
 
 Day 2 
 - Write game logic 
