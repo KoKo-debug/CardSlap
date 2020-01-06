@@ -13,7 +13,7 @@
 - [ ] slap the middle pile to either obtain the pile or to send card to the bottom of the pile
 - [ ] see past three middle pile cards when slapping middle pile
 
-### possible bonus features
+### bonus features
 - [ ] adjust difficulty of computer opponents  
 - [ ] cards being placed into pile will be animated with smooth and quick motion
 - [ ] orientation and position of card being placed will be somewhat random to mimic real play
