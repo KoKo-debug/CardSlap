@@ -11,10 +11,10 @@ document.addEventListener("DOMContentLoaded", function() {
     console.log(game);
 
 
-    const tapPlayerPile = document.getElementById("playerPile");
-    tapPlayerPile.addEventListener("click", game.tapOwnPile());
+    // const tapPlayerPile = document.getElementById("playerPile");
+    // tapPlayerPile.addEventListener("click", game.tapOwnPile());
 
 
-    const tapMainPile = document.getElementById("mainPile");
-    tapMainPile.addEventListener("click", game.tapMainPile());
+    // const tapMainPile = document.getElementById("mainPile");
+    // tapMainPile.addEventListener("click", game.tapMainPile());
 });
