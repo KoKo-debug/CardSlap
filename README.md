@@ -19,8 +19,8 @@
 - [ ] orientation and position of card being placed will be somewhat random to mimic real play
 
 ## Wireframes 
+![CardSlapWireframe](https://i.imgur.com/7yFCTjn.png)
 
-https://www.lucidchart.com/invitations/accept/06e52bab-7136-4789-98ed-e10e31a4c775
 
 
 ## Architecture and Technology 
@@ -29,20 +29,20 @@ https://www.lucidchart.com/invitations/accept/06e52bab-7136-4789-98ed-e10e31a4c7
 
 
 ## Implementation Timeline 
-- Day 1 
+Day 1 
 - Boilerplate and create deck
 
-- Day 2 
+Day 2 
 - Write game logic 
 
-- Day 3 
+Day 3 
 - Do CSS for card
 - learn how to animate flipping cards from users pile to middle pile
 
-- Day 4 
+Day 4 
 - CSS board with pile size affected by number of cards
 - learn how to place cards in slight radom orietation
 
-- Day 5
+Day 5
 - annimate flipping card
 - create how to play
