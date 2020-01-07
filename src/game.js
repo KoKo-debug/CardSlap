@@ -7,7 +7,7 @@ export default class Game {
     constructor() {
 
         this.cards = new Cards();
-        this.computer = new Computer(this.double);
+        this.computer = new Computer();
         this.player = new Player();
         this.display = new Display();
         this.players = [this.player.player1, this.computer.comp1, this.computer.comp2, this.computer.comp3];
@@ -15,6 +15,13 @@ export default class Game {
         this.tapMainPile = this.tapMainPile.bind(this);
         this.tapOwnPile = this.tapOwnPile.bind(this);
         this.resetGame = this.resetGame.bind(this);
+
+
+        this.comp1Func = this.comp1Func.bind(this);
+        this.computerTurn = this.computerTurn.bind(this);
+
+        setInterval(this.comp1Func, 4000);
+        setInterval(this.computerTurn, 1000);
     }
     
     resetGame() {
@@ -114,14 +121,19 @@ export default class Game {
         this.display.render(this.mainPile, this.players);
     }
 
+    comp1Func() {
+        if (this.computer.comp1[1].pile.length === 0) {
+            return null;
+        } else if (this.goodSlap()) {
+          this.computer.comp1[1].pile.unshift(...this.mainPile);
+          this.mainPile = [];
+      }
 
+      this.display.render(this.mainPile, this.players);
+    }
 
-
-
-
-
-
-
-
+    computerTurn() {
+        return null;
+    }
 
 }
