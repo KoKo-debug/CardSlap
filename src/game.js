@@ -35,16 +35,17 @@ export default class Game {
 
     chooseStartPlayer() {
         let rand_idx = Math.floor(Math.random() * this.players.length);
-        return this.players[rand_idx][0].name;
+        this.players[rand_idx][2].turn = true;
+        debugger;
     }
     
     startGame() {
-        console.log(this.chooseStartPlayer()); 
         this.resetGame();
         this.display.render(this.mainPile, this.players);
         this.cards.clear(); 
         this.cards.generate_deck();
         this.cards.shuffle();
+        this.chooseStartPlayer(); 
         while (this.cards.deck.length > 0) {
             for (let i = 0; i < this.players.length; i ++) {
                 this.players[i][1].pile.push(this.cards.deal());
@@ -54,15 +55,20 @@ export default class Game {
     
 
     tapOwnPile() {
-        let topCard = this.player.player1[1].pile.pop();
-        
-        if (topCard === undefined) {
-            this.gameOver();
+        if (this.player.player1[2].turn) {
+            let topCard = this.player.player1[1].pile.pop();
+            
+            if (topCard === undefined) {
+                this.gameOver();
+            } else {
+                this.mainPile.push(topCard);
+                this.computer.comp1[2].turn = true;
+            }
+    
+            this.display.render(this.mainPile, this.players);
         } else {
-            this.mainPile.push(topCard);
+            return null;
         }
-
-        this.display.render(this.mainPile, this.players);
     }
 
 
@@ -133,7 +139,25 @@ export default class Game {
     }
 
     computerTurn() {
-        return null;
+        if (this.computer.comp1[2].turn) {
+            console.log("computer 1's turn");
+
+            this.computer.comp1[2].turn = false;
+            this.computer.comp2[2].turn = true;
+
+        } else if (this.computer.comp2[2].turn) {
+
+            console.log("computer 2's turn");
+            this.computer.comp2[2].turn = false;
+            this.computer.comp3[2].turn = true;
+
+        } else if (this.computer.comp3[2].turn) {
+
+            console.log("computer 3's turn");
+            this.computer.comp3[2].turn = false;
+            this.player.player1[2].turn = true;
+        }
+
     }
 
 }
