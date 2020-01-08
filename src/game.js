@@ -16,14 +16,13 @@ export default class Game {
         this.tapOwnPile = this.tapOwnPile.bind(this);
         this.resetGame = this.resetGame.bind(this);
 
-
+        
         this.comp1Func = this.comp1Func.bind(this);
+        this.comp2Func = this.comp2Func.bind(this);
+        this.comp3Func = this.comp3Func.bind(this);
+
         this.computerTurn = this.computerTurn.bind(this);
-
-
-        // setInterval(this.delayedFunction, 1000);
-        // setInterval(this.comp1Func, 4000);
-        // setInterval(this.computerTurn, 1000);
+        
     }
     
 
@@ -70,6 +69,9 @@ export default class Game {
             }
     
             this.display.render(this.mainPile, this.players);
+
+            this.player.player1[2].turn = false;
+            this.computer.comp1[2].turn = true;
             this.computerTurn();
         } else {
             return null;
@@ -123,6 +125,19 @@ export default class Game {
         if (this.goodSlap()) {
             this.player.player1[1].pile.unshift(...this.mainPile);
             this.mainPile = [];
+
+            this.computer.comp1[2].turn = false;
+            this.computer.comp2[2].turn = false;
+            this.computer.comp3[2].turn = false;
+            this.player.player1[2].turn = true;
+
+            let id = window.setTimeout(function() {}, 0);
+
+            while (id--) {
+                window.clearTimeout(id);
+            }
+
+
         } else if (!this.goodSlap() && this.player.player1[1].pile.length === 0 ){
             this.gameOver();
         } else {
@@ -150,10 +165,10 @@ export default class Game {
     }
 
     delayedFunctionPush(currentComp) {
-        let minTime = 3000;
-        let maxTime = 5000;
+        let minTime = 2000;
+        let maxTime = 3000;
         let rand_time = Math.floor(Math.random() * (maxTime - minTime) + minTime);
-
+        
         if (currentComp === "comp1") {
             setTimeout(function () {
                 console.log("this is from delayed push function");
@@ -167,7 +182,7 @@ export default class Game {
 
             }.bind(this), rand_time);
         } else if (currentComp === "comp2") {
-            setTimeout(function () {
+            setTimeout(function comp2Push () {
                 console.log("this is from delayed push function");
                 let topCard = this.computer.comp2[1].pile.pop();
                 this.mainPile.push(topCard);
@@ -180,7 +195,7 @@ export default class Game {
             }.bind(this), rand_time);
 
         } else if (currentComp === "comp3") {
-            setTimeout(function () {
+            setTimeout(function comp3Push () {
                 console.log("this is from delayed push function");
                 let topCard = this.computer.comp3[1].pile.pop();
                 this.mainPile.push(topCard);
@@ -197,9 +212,7 @@ export default class Game {
     comp1Func() {
         if (this.computer.comp1[1].pile.length === 0) {
             return null;
-        } else if (this.goodSlap()) {
-            this.delayedFunctionTake("comp1");
-      } else {
+        } else {
           this.delayedFunctionPush("comp1");
       }
       this.display.render(this.mainPile, this.players);
@@ -241,7 +254,7 @@ export default class Game {
             console.log("computer 3's turn");
             this.comp3Func();
         } else {
-            return null;
+            console.log("its your turn");
         }
 
     }
