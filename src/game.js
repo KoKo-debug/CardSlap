@@ -67,14 +67,114 @@ export default class Game {
         });
     
         topCards.forEach((card, idx) => {
+            const cardTable = document.getElementById("cardTable");
+
             if (idx === 0) {
+                let div1 = document.createElement("div");
+                div1.className="vertical flip-container0";
 
+                let div2 = document.createElement("div");
+                div2.className="flipper0";
+
+                let div3 = document.createElement("div");
+                div3.className="front0";
+
+                let div4 = document.createElement("div");
+                div4.className="back0";
+                
+                let div4Content = card.name;
+    
+                div4.innerHTML = div4Content;
+
+                let img1 = document.createElement("img");
+                img1.className="backCardV";
+                img1.src = "src/images//cardBack.jpg";
+                
+                cardTable.appendChild(div1);
+                div1.appendChild(div2);
+                div2.appendChild(div3);
+                div2.appendChild(div4);
+                div3.appendChild(img1);
+
+                
             } else if (idx === 1) {
+                let div1 = document.createElement("div");
+                div1.className = "horizontal flip-container1";
 
+                let div2 = document.createElement("div");
+                div2.className = "flipper1";
+
+                let div3 = document.createElement("div");
+                div3.className = "front1";
+
+                let div4 = document.createElement("div");
+                div4.className = "back1";
+
+                let div4Content = card.name;
+
+                div4.innerHTML = div4Content;
+
+                let img1 = document.createElement("img");
+                img1.className = "backCardH";
+                img1.src = "src/images//cardBack.jpg";
+
+                cardTable.appendChild(div1);
+                div1.appendChild(div2);
+                div2.appendChild(div3);
+                div2.appendChild(div4);
+                div3.appendChild(img1);
             } else if (idx === 2) {
+                let div1 = document.createElement("div");
+                div1.className = "vertical flip-container2";
 
+                let div2 = document.createElement("div");
+                div2.className = "flipper2";
+
+                let div3 = document.createElement("div");
+                div3.className = "front2";
+
+                let div4 = document.createElement("div");
+                div4.className = "back2";
+
+                let div4Content = card.name;
+
+                div4.innerHTML = div4Content;
+
+                let img1 = document.createElement("img");
+                img1.className = "backCardV";
+                img1.src = "src/images//cardBack.jpg";
+
+                cardTable.appendChild(div1);
+                div1.appendChild(div2);
+                div2.appendChild(div3);
+                div2.appendChild(div4);
+                div3.appendChild(img1);
             } else if (idx === 3) {
+                let div1 = document.createElement("div");
+                div1.className = "horizontal flip-container3";
 
+                let div2 = document.createElement("div");
+                div2.className = "flipper3";
+
+                let div3 = document.createElement("div");
+                div3.className = "front3";
+
+                let div4 = document.createElement("div");
+                div4.className = "back3";
+
+                let div4Content = card.name;
+
+                div4.innerHTML = div4Content;
+
+                let img1 = document.createElement("img");
+                img1.className = "backCardH";
+                img1.src = "src/images//cardBack.jpg";
+
+                cardTable.appendChild(div1);
+                div1.appendChild(div2);
+                div2.appendChild(div3);
+                div2.appendChild(div4);
+                div3.appendChild(img1);
             }
         });
     }
