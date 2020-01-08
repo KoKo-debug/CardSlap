@@ -29,5 +29,4 @@ document.addEventListener("DOMContentLoaded", function() {
     const comp3Pile = document.getElementById("comp3Pile");
     comp3Pile.innerHTML = "Computer 3's pile : " + game.players[3][1].pile.length + " cards";
    
-    console.log(game.mainPile);
 });

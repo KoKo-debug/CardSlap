@@ -30,9 +30,5 @@ export default class Display {
         const comp3Pile = document.getElementById("comp3Pile");
         comp3Pile.innerHTML = "Computer 3's pile : " + players[3][1].pile.length + " cards";
 
-
-
-        console.log(players[0][1].pile);
-        console.log(mainPile);
     }
 }
