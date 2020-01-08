@@ -178,6 +178,7 @@ export default class Game {
           this.delayedFunctionPush("comp1");
       }
 
+      
       this.display.render(this.mainPile, this.players);
       
     }
