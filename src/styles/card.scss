@@ -1,0 +1,74 @@
+
+.backCard {
+    width: 170px;
+    height: 200px;
+}
+
+    /* entire container, keeps perspective */
+.flip-container {
+    perspective: 1000px;
+}
+
+.flip-container, .front, .back2 {
+    width: 170px;
+    height: 200px;
+}
+
+/* flip speed goes here */
+.flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+}
+
+/* front pane, placed above back */
+.front {
+    z-index: 1;
+    border: 1px solid transparent;
+    border-radius: 20px;
+}
+
+/* back, initially hidden pane */
+/*  change this for end position  */
+.back2 {
+    position: absolute;
+    transform: rotateX(-180deg);
+    background-color: white;
+    animation: toFront 0.3s linear normal forwards;
+    border: 1px solid black;
+    border-radius: 20px;
+    top: -250px;
+    text-align: center;
+    margin: auto;
+}
+.vertical.flip-container {
+    position: absolute;
+    top: 25px;
+    z-index: 1;
+}
+.vertical.flip-container:hover .back2 {
+    animation-delay: 0.3s;
+    animation: toBack 0.3s linear normal  forwards;
+}
+
+.vertical.flip-container .flipper {
+    transform-origin: 100% 100px; /* half of height */
+}
+
+.vertical.flip-container:hover .flipper {
+    transform: rotateX(-180deg);
+}
+
+
+
+
+/*  trying bottom pile   */

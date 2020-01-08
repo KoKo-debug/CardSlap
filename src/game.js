@@ -52,9 +52,32 @@ export default class Game {
                 this.players[i][1].pile.push(this.cards.deal());
             }
         }
+        console.log(this.players);
+        this.loadTopCards();
         this.computerTurn();
     }
     
+
+    loadTopCards(playerIdx = [0, 1, 2, 3]) {
+        let topCards = [];
+        playerIdx.forEach(i => {
+            let pile = this.players[i][1].pile;
+            let topCard = pile[pile.length -1 ] || "blank";
+            topCards[i] = topCard;
+        });
+    
+        topCards.forEach((card, idx) => {
+            if (idx === 0) {
+
+            } else if (idx === 1) {
+
+            } else if (idx === 2) {
+
+            } else if (idx === 3) {
+
+            }
+        });
+    }
 
     tapOwnPile() {
         if (this.player.player1[2].turn) {
