@@ -166,6 +166,31 @@ export default class Game {
                 this.computerTurn();
 
             }.bind(this), rand_time);
+        } else if (currentComp === "comp2") {
+            setTimeout(function () {
+                console.log("this is from delayed push function");
+                let topCard = this.computer.comp2[1].pile.pop();
+                this.mainPile.push(topCard);
+                this.display.render(this.mainPile, this.players);
+
+                this.computer.comp2[2].turn = false;
+                this.computer.comp3[2].turn = true;
+                this.computerTurn();
+
+            }.bind(this), rand_time);
+
+        } else if (currentComp === "comp3") {
+            setTimeout(function () {
+                console.log("this is from delayed push function");
+                let topCard = this.computer.comp3[1].pile.pop();
+                this.mainPile.push(topCard);
+                this.display.render(this.mainPile, this.players);
+
+                this.computer.comp3[2].turn = false;
+                this.player.player1[2].turn = true;
+                this.computerTurn();
+
+            }.bind(this), rand_time);
         }
     }
 
@@ -177,14 +202,30 @@ export default class Game {
       } else {
           this.delayedFunctionPush("comp1");
       }
-
-
       this.display.render(this.mainPile, this.players);
-      
     }
 
+    comp2Func() {
+        if (this.computer.comp2[1].pile.length === 0) {
+            return null;
+        } else {
+            this.delayedFunctionPush("comp2");
+        }
+        this.display.render(this.mainPile, this.players);
+    }
+
+    comp3Func() {
+        if (this.computer.comp3[1].pile.length === 0) {
+            return null;
+        } else {
+            this.delayedFunctionPush("comp3");
+        }
+        this.display.render(this.mainPile, this.players);
+    }
+
+
+
     computerTurn() {
-        console.log("delete this");
         if (this.computer.comp1[2].turn) {
             console.log("computer 1's turn");
 
@@ -193,16 +234,12 @@ export default class Game {
         } else if (this.computer.comp2[2].turn) {
 
             console.log("computer 2's turn");
-            this.computer.comp2[2].turn = false;
-            this.computer.comp3[2].turn = true;
-            this.computerTurn();
+            this.comp2Func();
 
         } else if (this.computer.comp3[2].turn) {
 
             console.log("computer 3's turn");
-            this.computer.comp3[2].turn = false;
-            this.player.player1[2].turn = true;
-            this.computerTurn();
+            this.comp3Func();
         } else {
             return null;
         }
