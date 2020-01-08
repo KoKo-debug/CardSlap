@@ -130,11 +130,7 @@ export default class Game {
             this.computer.comp3[2].turn = false;
             this.player.player1[2].turn = true;
 
-            let id = window.setTimeout(function() {}, 0);
-
-            while (id--) {
-                window.clearTimeout(id);
-            }
+            this.clearTimeout();
 
 
         } else if (!this.goodSlap() && this.player.player1[1].pile.length === 0 ){
@@ -147,25 +143,17 @@ export default class Game {
     }
 
 
-    delayedFunctionTake(currentComp) {
-        let minTime = 3000;
-        let maxTime = 5000;
-        let rand_time = Math.floor(Math.random() * (maxTime - minTime) + minTime);
+    clearTimeout() {
+        let id = window.setTimeout(function() {}, 0);
 
-        if (currentComp === "comp1") {
-            setTimeout(function () {
-                console.log("this is from delayed take function");
-                this.computer.comp1[1].pile.unshift(...this.mainPile);
-                this.mainPile = [];
-                this.display.render(this.mainPile, this.players);
-            }.bind(this), rand_time);
-
+        while (id--) {
+            window.clearTimeout(id);
         }
     }
 
     delayedFunctionPush(currentComp) {
         let minTime = 2000;
-        let maxTime = 3000;
+        let maxTime = 2000;
         let rand_time = Math.floor(Math.random() * (maxTime - minTime) + minTime);
         
         if (currentComp === "comp1") {
@@ -177,11 +165,13 @@ export default class Game {
 
                 this.computer.comp1[2].turn = false;
                 this.computer.comp2[2].turn = true;
+                
+                this.clearTimeout();
                 this.computerTurn();
 
             }.bind(this), rand_time);
         } else if (currentComp === "comp2") {
-            setTimeout(function comp2Push () {
+            setTimeout(function () {
 
                 let topCard = this.computer.comp2[1].pile.pop();
                 this.mainPile.push(topCard);
@@ -189,12 +179,14 @@ export default class Game {
 
                 this.computer.comp2[2].turn = false;
                 this.computer.comp3[2].turn = true;
+                
+                this.clearTimeout();
                 this.computerTurn();
 
             }.bind(this), rand_time);
 
         } else if (currentComp === "comp3") {
-            setTimeout(function comp3Push () {
+            setTimeout(function () {
 
                 let topCard = this.computer.comp3[1].pile.pop();
                 this.mainPile.push(topCard);
@@ -202,6 +194,9 @@ export default class Game {
 
                 this.computer.comp3[2].turn = false;
                 this.player.player1[2].turn = true;
+                
+
+                this.clearTimeout();
                 this.computerTurn();
 
             }.bind(this), rand_time);
@@ -210,7 +205,9 @@ export default class Game {
 
     comp1Func() {
         if (this.computer.comp1[1].pile.length === 0) {
-            return null;
+            this.computer.comp1[2].turn = false;
+            this.computer.comp2[2].turn = true;
+            this.computerTurn();
         } else {
           this.delayedFunctionPush("comp1");
       }
@@ -219,7 +216,9 @@ export default class Game {
 
     comp2Func() {
         if (this.computer.comp2[1].pile.length === 0) {
-            return null;
+            this.computer.comp2[2].turn = false;
+            this.computer.comp3[2].turn = true;
+            this.computerTurn();
         } else {
             this.delayedFunctionPush("comp2");
         }
@@ -228,7 +227,9 @@ export default class Game {
 
     comp3Func() {
         if (this.computer.comp3[1].pile.length === 0) {
-            return null;
+            this.computer.comp3[2].turn = false;
+            this.player.player1[2].turn = true;
+            this.computerTurn();
         } else {
             this.delayedFunctionPush("comp3");
         }
@@ -236,24 +237,83 @@ export default class Game {
     }
 
 
+    allCompTake() {
+        let minTime = 1000;
+        let maxTime = 2000;
+        let rand_time;
+
+        rand_time = Math.floor(Math.random() * (maxTime - minTime) + minTime);
+        setTimeout(function () {
+            if (this.goodSlap()) {
+                this.computer.comp1[1].pile.unshift(...this.mainPile);
+                this.mainPile = [];
+
+                this.computer.comp1[2].turn = true;
+                this.computer.comp2[2].turn = false;
+                this.computer.comp3[2].turn = false;
+                this.player.player1[2].turn = false;
+
+                this.clearTimeout();
+                this.computerTurn();
+            }
+        }.bind(this), rand_time);
+
+        rand_time = Math.floor(Math.random() * (maxTime - minTime) + minTime);
+        setTimeout(function () {
+            if (this.goodSlap()) {
+                this.computer.comp2[1].pile.unshift(...this.mainPile);
+                this.mainPile = [];
+
+                this.computer.comp1[2].turn = false;
+                this.computer.comp2[2].turn = true;
+                this.computer.comp3[2].turn = false;
+                this.player.player1[2].turn = false;
+
+                this.clearTimeout();
+                this.computerTurn();
+            }
+        }.bind(this), rand_time);
+
+        rand_time = Math.floor(Math.random() * (maxTime - minTime) + minTime);
+        setTimeout(function () {
+            if (this.goodSlap()) {
+                this.computer.comp3[1].pile.unshift(...this.mainPile);
+                this.mainPile = [];
+
+                this.computer.comp1[2].turn = false;
+                this.computer.comp2[2].turn = false;
+                this.computer.comp3[2].turn = true;
+                this.player.player1[2].turn = false;
+
+                this.clearTimeout();
+                this.computerTurn();
+            }
+        }.bind(this), rand_time);
+    }
+
 
     computerTurn() {
         if (this.computer.comp1[2].turn) {
             console.log("computer 1's turn");
 
             this.comp1Func();
+            this.allCompTake();
 
         } else if (this.computer.comp2[2].turn) {
 
             console.log("computer 2's turn");
             this.comp2Func();
+            this.allCompTake();
 
         } else if (this.computer.comp3[2].turn) {
 
             console.log("computer 3's turn");
             this.comp3Func();
+            this.allCompTake();
+
         } else {
             console.log("its your turn");
+            this.allCompTake();
         }
 
     }

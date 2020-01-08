@@ -2,9 +2,6 @@ import './styles/index.scss';
 import Game from './game';
 
 document.addEventListener("DOMContentLoaded", function() {
-    const canvasEl = document.getElementById("canvas");
-    canvasEl.width = 1000;
-    canvasEl.height = 700;
 
     let game = new Game();
     game.startGame();
