@@ -1,28 +1,135 @@
+body {
+ border: 1px solid black;
+ width: 96vw;
+ height: 96vh;
+}
 
-.backCard {
+#cardTable {
+    border: 1px solid red;
+    position: relative;
+    margin-left: 100px;
+    margin-top:  50px;
+    width: 800px;
+    height: 750px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.comp2-container {
+    border: 1px solid purple;
+    position: relative;
     width: 170px;
     height: 200px;
 }
 
-    /* entire container, keeps perspective */
-.flip-container {
+#comp2Pile {
+    position: absolute;
+}
+
+.midTableSpan {
+    display: flex;
+    align-items: center;
+}
+
+.comp1-container {
+    position: relative;
+    border: 1px solid green;
+    width: 200px;
+    height: 140px;
+}
+
+#comp1Pile {
+    position: absolute;
+}
+
+.mid-container {
+    position: relative;
+    border: 1px solid blue;
+    width: 200px;
+    height: 200px;
+    margin: 0px 70px;
+}
+
+#mainPile {
+    position: absolute;
+    appearance: none;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.comp3-container {
+    position: relative;
+    border: 1px solid orange;
+    width: 200px;
+    height: 140px;
+}
+
+#comp3Pile {
+    position: absolute;
+}
+
+.player-container {
+    border: 1px solid rgb(194, 194, 0);
+    position: relative;
+    width: 170px;
+    height: 200px;
+
+}
+
+#playerPile {
+    position: absolute;
+    appearance: none;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    cursor: pointer;
+}
+
+
+/*  Below is for Player Pile ~~~~~~ */
+
+
+
+
+/* changed top to bottom  */
+.vertical.flip-container0 {
+    position: absolute;
+    bottom: 25px;
+    z-index: 1;
+}
+
+/* change -180 to 180 */
+.vertical.flip-container0:hover .flipper0 {
+    transform: rotateX(180deg);
+}
+
+
+.backCardV {
+    width: 170px;
+    height: 200px;
+}
+
+.flip-container0 {
     perspective: 1000px;
 }
 
-.flip-container, .front, .back2 {
+.flip-container0, .front0, .back0 {
     width: 170px;
     height: 200px;
 }
 
 /* flip speed goes here */
-.flipper {
+.flipper0 {
     transition: 0.6s;
     transform-style: preserve-3d;
     position: relative;
 }
 
 /* hide back of pane during swap */
-.front, .back2 {
+.front0, .back0 {
     position: absolute;
     top: 0;
     left: 0;
@@ -31,7 +138,81 @@
 }
 
 /* front pane, placed above back */
-.front {
+.front0 {
+    z-index: 1;
+    border: 1px solid transparent;
+    border-radius: 20px;
+}
+
+/* back, initially hidden pane */
+/*  change this for end position  */
+.back0 {
+    position: absolute;
+    transform: rotateX(-180deg);
+    background-color: white;
+    animation: toFront 0.3s linear normal forwards;
+    border: 1px solid black;
+    border-radius: 20px;
+    bottom: -300px;
+    text-align: center;
+    margin: auto;
+}
+
+.vertical.flip-container0:hover .back0 {
+    animation-delay: 0.3s;
+    animation: toBack 0.3s linear normal  forwards;
+}
+
+.vertical.flip-container0 .flipper0 {
+    transform-origin: 100% 0px; /* half of height */
+}
+
+
+
+/*  Below is for Computer 2 Pile ~~~~~~ */
+
+
+
+/* changed top to bottom  */
+.vertical.flip-container2 {
+    position: absolute;
+    top: 25px;
+    z-index: 1;
+}
+
+/* change -180 to 180 */
+.vertical.flip-container2:hover .flipper2 {
+    transform: rotateX(-180deg);
+}
+
+
+.flip-container2 {
+    perspective: 1000px;
+}
+
+.flip-container2, .front2, .back2 {
+    width: 170px;
+    height: 200px;
+}
+
+/* flip speed goes here */
+.flipper2 {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+/* hide back of pane during swap */
+.front2, .back2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+}
+
+/* front pane, placed above back */
+.front2 {
     z-index: 1;
     border: 1px solid transparent;
     border-radius: 20px;
@@ -46,29 +227,173 @@
     animation: toFront 0.3s linear normal forwards;
     border: 1px solid black;
     border-radius: 20px;
-    top: -250px;
+    bottom: -100px;
     text-align: center;
     margin: auto;
 }
-.vertical.flip-container {
-    position: absolute;
-    top: 25px;
-    z-index: 1;
-}
-.vertical.flip-container:hover .back2 {
+
+.vertical.flip-container2:hover .back2 {
     animation-delay: 0.3s;
     animation: toBack 0.3s linear normal  forwards;
 }
 
-.vertical.flip-container .flipper {
+.vertical.flip-container2 .flipper2 {
+    transform-origin: 0% 200px; /* half of height */
+}
+
+
+
+
+
+/* Computer 1 below~~~~~ */
+
+/* changed top to bottom  */
+.horizontal.flip-container1 {
+    position: absolute;
+    top: 305px;
+    left: 25px;
+    z-index: 1;
+}
+
+/* change -180 to 180 */
+.horizontal.flip-container1:hover .flipper1 {
+    transform: rotateY(180deg);
+}
+
+
+.backCardH {
+    width: 200px;
+    height: 140px;
+}
+
+.flip-container1 {
+    perspective: 1000px;
+}
+
+.flip-container1, .front1, .back1 {
+    width: 200px;
+    height: 140px;
+}
+
+/* flip speed goes here */
+.flipper1 {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+/* hide back of pane during swap */
+.front1, .back1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+}
+
+/* front pane, placed above back */
+.front1 {
+    z-index: 1;
+    border: 1px solid transparent;
+    border-radius: 20px;
+}
+
+/* back, initially hidden pane */
+/*  change this for end position  */
+.back1 {
+    position: absolute;
+    transform: rotateY(-180deg);
+    background-color: white;
+    animation: toFront 0.3s linear normal forwards;
+    border: 1px solid black;
+    border-radius: 20px;
+    left: -80px;
+    text-align: center;
+    margin: auto;
+}
+
+.horizontal.flip-container1:hover .back1 {
+    animation-delay: 0.3s;
+    animation: toBack 0.3s linear normal  forwards;
+}
+
+.horizontal.flip-container1 .flipper1 {
     transform-origin: 100% 100px; /* half of height */
 }
 
-.vertical.flip-container:hover .flipper {
-    transform: rotateX(-180deg);
+/* below is for computer 3 !~~~~~ */
+
+
+/* changed top to bottom  */
+.horizontal.flip-container3 {
+    position: absolute;
+    top: 305px;
+    right: 25px;
+    z-index: 1;
+}
+
+/* change -180 to 180 */
+.horizontal.flip-container3:hover .flipper3 {
+    transform: rotateY(-180deg);
 }
 
 
+.backCardH {
+    width: 200px;
+    height: 140px;
+}
 
+.flip-container3 {
+    perspective: 1000px;
+}
 
-/*  trying bottom pile   */
+.flip-container3, .front3, .back3 {
+    width: 200px;
+    height: 140px;
+}
+
+/* flip speed goes here */
+.flipper3 {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+/* hide back of pane during swap */
+.front3, .back3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+}
+
+/* front pane, placed above back */
+.front3 {
+    z-index: 1;
+    border: 1px solid transparent;
+    border-radius: 20px;
+}
+
+/* back, initially hidden pane */
+/*  change this for end position  */
+.back3 {
+    position: absolute;
+    transform: rotateY(180deg);
+    background-color: white;
+    animation: toFront 0.3s linear normal forwards;
+    border: 1px solid black;
+    border-radius: 20px;
+    left: 75px;
+    text-align: center;
+    margin: auto;
+}
+
+.horizontal.flip-container3:hover .back3 {
+    animation-delay: 0.3s;
+    animation: toBack 0.3s linear normal  forwards;
+}
+
+.horizontal.flip-container3 .flipper3 {
+    transform-origin: 0% 0%; /* half of height */
+}

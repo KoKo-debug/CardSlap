@@ -186,6 +186,9 @@ export default class Game {
             if (topCard === undefined) {
                 this.gameOver();
             } else {
+                this.PushAnimation("player");
+                this.loadTopCards([0]);
+                this.clearTimeout();
                 this.mainPile.push(topCard);
                 this.computer.comp1[2].turn = true;
             }
@@ -253,8 +256,9 @@ export default class Game {
             this.computer.comp3[2].turn = false;
             this.player.player1[2].turn = true;
 
+            this.removeMainPile();
             this.clearTimeout();
-
+            this.computerTurn();
 
         } else if (!this.goodSlap() && this.player.player1[1].pile.length === 0 ){
             this.gameOver();
@@ -283,12 +287,14 @@ export default class Game {
             setTimeout(function () {
 
                 let topCard = this.computer.comp1[1].pile.pop();
+                this.PushAnimation("comp1");
                 this.mainPile.push(topCard);
                 this.display.render(this.mainPile, this.players);
 
                 this.computer.comp1[2].turn = false;
                 this.computer.comp2[2].turn = true;
                 
+                this.loadTopCards([1]);
                 this.clearTimeout();
                 this.computerTurn();
 
@@ -297,12 +303,15 @@ export default class Game {
             setTimeout(function () {
 
                 let topCard = this.computer.comp2[1].pile.pop();
+         
+                this.PushAnimation("comp2");
                 this.mainPile.push(topCard);
                 this.display.render(this.mainPile, this.players);
 
                 this.computer.comp2[2].turn = false;
                 this.computer.comp3[2].turn = true;
                 
+                this.loadTopCards([2]);
                 this.clearTimeout();
                 this.computerTurn();
 
@@ -312,6 +321,7 @@ export default class Game {
             setTimeout(function () {
 
                 let topCard = this.computer.comp3[1].pile.pop();
+                this.PushAnimation("comp3");
                 this.mainPile.push(topCard);
                 this.display.render(this.mainPile, this.players);
 
@@ -319,11 +329,117 @@ export default class Game {
                 this.player.player1[2].turn = true;
                 
 
+                this.loadTopCards([3]);
                 this.clearTimeout();
                 this.computerTurn();
 
             }.bind(this), rand_time);
         }
+    }
+
+    PushAnimation(current) {
+        if (current === "comp1") {
+
+            let backCollection = document.getElementsByClassName("back1");
+            let flipperCollection = document.getElementsByClassName("flipper1");
+            let container = document.getElementsByClassName("flip-container1");
+            let zIndex = this.mainPile.length;
+       
+            container[container.length - 1].style.zIndex = zIndex;
+     
+            
+            for (let i = 0; i < flipperCollection.length; i++) {
+                flipperCollection[i].style.transform = 'rotateY(180deg)';
+            }
+
+            
+
+            for (let i = 0; i < backCollection.length; i++) {
+                backCollection[i].style.animationDelay = '0.3s';
+                backCollection[i].style.animation = 'toBack 0.3s linear normal forwards';
+            }
+
+        } else if (current === "comp2") {
+            let backCollection = document.getElementsByClassName("back2");
+            let flipperCollection = document.getElementsByClassName("flipper2");
+            let container = document.getElementsByClassName("flip-container2");
+            let zIndex = this.mainPile.length;
+
+  
+            container[container.length - 1].style.zIndex = zIndex;
+
+            for (let i = 0; i < flipperCollection.length; i++) {
+                flipperCollection[i].style.transform = 'rotateX(-180deg)';
+            }
+
+            for (let i = 0; i < backCollection.length; i++) {
+                backCollection[i].style.animationDelay = '0.3s';
+                backCollection[i].style.animation = 'toBack 0.3s linear normal forwards';
+            }
+
+        } else if (current === "comp3") {
+            let backCollection = document.getElementsByClassName("back3");
+            let flipperCollection = document.getElementsByClassName("flipper3");
+            let container = document.getElementsByClassName("flip-container3");
+            let zIndex = this.mainPile.length;
+  
+            container[container.length - 1].style.zIndex = zIndex;
+
+            for (let i = 0; i < flipperCollection.length; i++) {
+                flipperCollection[i].style.transform = 'rotateY(-180deg)';
+            }
+
+            for (let i = 0; i < backCollection.length; i++) {
+                backCollection[i].style.animationDelay = '0.3s';
+                backCollection[i].style.animation = 'toBack 0.3s linear normal forwards';
+            }
+
+
+        } else if (current === "player") {
+            let backCollection = document.getElementsByClassName("back0");
+            let flipperCollection = document.getElementsByClassName("flipper0");
+            let container = document.getElementsByClassName("flip-container0");
+            let zIndex = this.mainPile.length;
+
+            container[container.length - 1].style.zIndex = zIndex;
+
+            for (let i = 0; i < flipperCollection.length; i++) {
+                flipperCollection[i].style.transform = 'rotateX(180deg)';
+            }
+
+            for (let i = 0; i < backCollection.length; i++) {
+                backCollection[i].style.animationDelay = '0.3s';
+                backCollection[i].style.animation = 'toBack 0.3s linear normal forwards';
+            }
+        }
+
+    }
+
+    removeMainPile() {
+        let div1 = document.getElementsByClassName("flip-container0");
+        let div2 = document.getElementsByClassName("flip-container1");
+        let div3 = document.getElementsByClassName("flip-container2");
+        let div4 = document.getElementsByClassName("flip-container3");
+
+
+
+        for (let i = 0; i < div1.length + 1; i++) {
+
+            div1[0].parentNode.removeChild(div1[0]);
+        }
+
+        for (let i = 0; i < div2.length + 1; i++) {
+            div2[0].parentNode.removeChild(div2[0]);
+
+        }
+        for (let i = 0; i < div3.length + 1; i++) {
+            div3[0].parentNode.removeChild(div3[0]);
+        }
+        for (let i = 0; i < div4.length + 1; i++) {
+            div4[0].parentNode.removeChild(div4[0]);
+        }
+
+        this.loadTopCards();
     }
 
     comp1Func() {
@@ -361,6 +477,11 @@ export default class Game {
 
 
     allCompTake() {
+        if (this.goodSlap()) {
+            this.clearTimeout();
+        }
+
+
         let minTime = 1000;
         let maxTime = 2000;
         let rand_time;
@@ -376,6 +497,7 @@ export default class Game {
                 this.computer.comp3[2].turn = false;
                 this.player.player1[2].turn = false;
 
+                this.removeMainPile();
                 this.clearTimeout();
                 this.computerTurn();
             }
@@ -391,7 +513,8 @@ export default class Game {
                 this.computer.comp2[2].turn = true;
                 this.computer.comp3[2].turn = false;
                 this.player.player1[2].turn = false;
-
+                
+                this.removeMainPile();
                 this.clearTimeout();
                 this.computerTurn();
             }
@@ -408,6 +531,7 @@ export default class Game {
                 this.computer.comp3[2].turn = true;
                 this.player.player1[2].turn = false;
 
+                this.removeMainPile();
                 this.clearTimeout();
                 this.computerTurn();
             }
@@ -418,6 +542,7 @@ export default class Game {
     computerTurn() {
         if (this.computer.comp1[2].turn) {
             console.log("computer 1's turn");
+            console.log(this.mainPile);
 
             this.comp1Func();
             this.allCompTake();
@@ -425,17 +550,21 @@ export default class Game {
         } else if (this.computer.comp2[2].turn) {
 
             console.log("computer 2's turn");
+            console.log(this.mainPile);
             this.comp2Func();
             this.allCompTake();
 
         } else if (this.computer.comp3[2].turn) {
 
             console.log("computer 3's turn");
+            console.log(this.mainPile);
             this.comp3Func();
             this.allCompTake();
 
         } else {
             console.log("its your turn");
+            console.log(this.player.player1);
+            console.log(this.mainPile);
             this.allCompTake();
         }
 

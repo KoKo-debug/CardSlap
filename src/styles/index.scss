@@ -55,8 +55,10 @@ body {
 #mainPile {
     position: absolute;
     appearance: none;
+    background-color: transparent;
     width: 100%;
     height: 100%;
+    z-index: 100;
     cursor: pointer;
 }
 
@@ -85,6 +87,8 @@ body {
     width: 100%;
     height: 100%;
     cursor: pointer;
+    z-index: 1000;
+    background-color: transparent;
 }
 
 
@@ -98,11 +102,6 @@ body {
     position: absolute;
     bottom: 25px;
     z-index: 1;
-}
-
-/* change -180 to 180 */
-.vertical.flip-container0:hover .flipper0 {
-    transform: rotateX(180deg);
 }
 
 
@@ -157,10 +156,6 @@ body {
     margin: auto;
 }
 
-.vertical.flip-container0:hover .back0 {
-    animation-delay: 0.3s;
-    animation: toBack 0.3s linear normal  forwards;
-}
 
 .vertical.flip-container0 .flipper0 {
     transform-origin: 100% 0px; /* half of height */
@@ -178,12 +173,6 @@ body {
     top: 25px;
     z-index: 1;
 }
-
-/* change -180 to 180 */
-.vertical.flip-container2:hover .flipper2 {
-    transform: rotateX(-180deg);
-}
-
 
 .flip-container2 {
     perspective: 1000px;
@@ -231,11 +220,6 @@ body {
     margin: auto;
 }
 
-.vertical.flip-container2:hover .back2 {
-    animation-delay: 0.3s;
-    animation: toBack 0.3s linear normal  forwards;
-}
-
 .vertical.flip-container2 .flipper2 {
     transform-origin: 0% 200px; /* half of height */
 }
@@ -252,11 +236,6 @@ body {
     top: 305px;
     left: 25px;
     z-index: 1;
-}
-
-/* change -180 to 180 */
-.horizontal.flip-container1:hover .flipper1 {
-    transform: rotateY(180deg);
 }
 
 
@@ -311,10 +290,6 @@ body {
     margin: auto;
 }
 
-.horizontal.flip-container1:hover .back1 {
-    animation-delay: 0.3s;
-    animation: toBack 0.3s linear normal  forwards;
-}
 
 .horizontal.flip-container1 .flipper1 {
     transform-origin: 100% 100px; /* half of height */
@@ -331,10 +306,6 @@ body {
     z-index: 1;
 }
 
-/* change -180 to 180 */
-.horizontal.flip-container3:hover .flipper3 {
-    transform: rotateY(-180deg);
-}
 
 
 .backCardH {
@@ -388,10 +359,6 @@ body {
     margin: auto;
 }
 
-.horizontal.flip-container3:hover .back3 {
-    animation-delay: 0.3s;
-    animation: toBack 0.3s linear normal  forwards;
-}
 
 .horizontal.flip-container3 .flipper3 {
     transform-origin: 0% 0%; /* half of height */
