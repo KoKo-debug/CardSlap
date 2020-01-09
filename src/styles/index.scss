@@ -91,6 +91,8 @@ body {
 /*  Below is for Player Pile ~~~~~~ */
 
 
+
+
 /* changed top to bottom  */
 .vertical.flip-container0 {
     position: absolute;
@@ -224,7 +226,7 @@ body {
     animation: toFront 0.3s linear normal forwards;
     border: 1px solid black;
     border-radius: 20px;
-    top: -250px;
+    bottom: -100px;
     text-align: center;
     margin: auto;
 }
@@ -235,7 +237,7 @@ body {
 }
 
 .vertical.flip-container2 .flipper2 {
-    transform-origin: 100% 100px; /* half of height */
+    transform-origin: 0% 200px; /* half of height */
 }
 
 
@@ -381,7 +383,7 @@ body {
     animation: toFront 0.3s linear normal forwards;
     border: 1px solid black;
     border-radius: 20px;
-    right: -950px;
+    left: 75px;
     text-align: center;
     margin: auto;
 }
@@ -392,5 +394,5 @@ body {
 }
 
 .horizontal.flip-container3 .flipper3 {
-    transform-origin: 100% 100px; /* half of height */
+    transform-origin: 0% 0%; /* half of height */
 }
