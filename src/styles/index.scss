@@ -18,6 +18,18 @@ body {
 
 }
 
+.title {
+    color: rgb(240, 56, 56);
+}
+
+.sub-title {
+    font-size: 14px;
+}
+
+.double {
+    color:rgb(101, 101, 226);
+}
+
 #card1 {
     position: absolute;
     border: 1px solid rgb(207, 202, 202);
@@ -36,7 +48,7 @@ body {
     background-color: rgb(230, 230, 230);
     height: 120px;
     width: 90px;
-    margin-left: 50px;
+    margin-left: 60px;
 }
 
 #card3 {
@@ -46,7 +58,7 @@ body {
     background-color: rgb(119, 226, 119);
     height: 120px;
     width: 90px;
-    margin-left: 80px;
+    margin-left: 100px;
 }
 
 #card4 {
@@ -56,16 +68,17 @@ body {
     background-color: rgb(119, 226, 119);
     height: 120px;
     width: 90px;
-    margin-left: 110px;
+    margin-left: 140px;
 }
 
 #cardValue {
-    font-size: 30px;
+    font-size: 30px; 
     margin-top: 5px;
     margin-left: 10px;
 }
 
 .sandwich {
+    color: rgb(101, 101, 226);
     margin-top: 150px;
 }
 
@@ -77,7 +90,7 @@ body {
     background-color: rgb(119, 226, 119);
     height: 120px;
     width: 90px;
-    margin-left: 50px;
+    margin-left: 60px;
 }
 
 #card3s {
@@ -87,11 +100,40 @@ body {
     background-color: rgb(230, 230, 230);
     height: 120px;
     width: 90px;
-    margin-left: 80px;
+    margin-left: 100px;
+}
+
+.face {
+    margin-top: 150px;
+    color: rgb(101, 101, 226);
+}
+
+.face-1 {
+    font-size: 18px;
+}
+
+#card3f {
+    position: absolute;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: rgb(245, 117, 117);
+    height: 120px;
+    width: 90px;
+    margin-left: 100px;
+}
+
+#card4f {
+    position: absolute;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: rgb(245, 117, 117);
+    height: 120px;
+    width: 90px;
+    margin-left: 140px;
 }
 
 .rule-penalty {
-    margin-top: 250px;
+    margin-top: 150px;
 }
 
 .background {
