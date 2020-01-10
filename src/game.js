@@ -653,6 +653,10 @@ export default class Game {
         if (this.computer.comp1[1].pile.length === 0) {
             this.computer.comp1[2].turn = false;
             this.computer.comp2[2].turn = true;
+
+            const comp1Container = document.getElementsByClassName("comp1-container");
+            comp1Container[0].style.boxShadow = "none";
+
             this.computerTurn();
         } else {
           this.delayedFunctionPush("comp1");
@@ -664,6 +668,10 @@ export default class Game {
         if (this.computer.comp2[1].pile.length === 0) {
             this.computer.comp2[2].turn = false;
             this.computer.comp3[2].turn = true;
+
+            const comp2Container = document.getElementsByClassName("comp2-container");
+            comp2Container[0].style.boxShadow = "none";
+    
             this.computerTurn();
         } else {
             this.delayedFunctionPush("comp2");
@@ -675,6 +683,10 @@ export default class Game {
         if (this.computer.comp3[1].pile.length === 0) {
             this.computer.comp3[2].turn = false;
             this.player.player1[2].turn = true;
+
+            const comp3Container = document.getElementsByClassName("comp3-container");
+            comp3Container[0].style.boxShadow = "none";
+
             this.computerTurn();
         } else {
             this.delayedFunctionPush("comp3");
