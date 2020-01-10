@@ -449,8 +449,7 @@ export default class Game {
                 const playerInfo = document.getElementById("playerInfoContainer");
                 playerInfo.innerHTML = "You have " + this.players[0][1].pile.length + " cards";
 
-                const hand = document.getElementById("playerhand");
-                hand.style.visibility = "hidden";
+                this.removehands();
             }.bind(this),2000);
 
 
@@ -683,7 +682,18 @@ export default class Game {
         this.display.render(this.mainPile, this.players);
     }
 
-
+    removehands() {
+        const hand0 = document.getElementById("playerhand");
+        const hand1 = document.getElementById("comphand1");
+        const hand2 = document.getElementById("comphand2");
+        const hand3 = document.getElementById("comphand3");
+        
+        hand0.style.visibility = "hidden";
+        hand1.style.visibility = "hidden";
+        hand2.style.visibility = "hidden";
+        hand3.style.visibility = "hidden";
+        
+    }
 
     allCompTake() {
         if (this.goodSlap()) {
@@ -698,7 +708,6 @@ export default class Game {
         rand_time = Math.floor(Math.random() * (maxTime - minTime) + minTime);
         setTimeout(function () {
             if (this.goodSlap()) {
-                this.clearTimeout();
                 this.player.player1[2].turn = false;
 
                 const hand = document.getElementById("comphand1");
@@ -723,11 +732,7 @@ export default class Game {
                     const comp1Container = document.getElementsByClassName("comp1-container");
                     comp1Container[0].style.boxShadow = "none";
 
-                    const hand = document.getElementById("comphand1");
-                    hand.style.visibility = "hidden";
-
-                    const phand = document.getElementById("playerhand");
-                    phand.style.visibility = "hidden";
+                    this.removehands();
 
                 }.bind(this),2000);
             }
@@ -736,7 +741,6 @@ export default class Game {
         rand_time = Math.floor(Math.random() * (maxTime - minTime) + minTime);
         setTimeout(function () {
             if (this.goodSlap()) {
-                this.clearTimeout();
                 this.player.player1[2].turn = false;
 
                 const hand = document.getElementById("comphand2");
@@ -761,11 +765,7 @@ export default class Game {
                     const comp2Container = document.getElementsByClassName("comp2-container");
                     comp2Container[0].style.boxShadow = "none";
 
-                    const hand = document.getElementById("comphand2");
-                    hand.style.visibility = "hidden";
-
-                    const phand = document.getElementById("playerhand");
-                    phand.style.visibility = "hidden";
+                    this.removehands();
                 }.bind(this),2000);
             }
         }.bind(this), rand_time);
@@ -773,7 +773,6 @@ export default class Game {
         rand_time = Math.floor(Math.random() * (maxTime - minTime) + minTime);
         setTimeout(function () {
             if (this.goodSlap()) {
-                this.clearTimeout();
                 this.player.player1[2].turn = false;
 
                 const hand = document.getElementById("comphand3");
@@ -799,11 +798,7 @@ export default class Game {
                     const comp3Container = document.getElementsByClassName("comp3-container");
                     comp3Container[0].style.boxShadow = "none";
 
-                    const hand = document.getElementById("comphand3");
-                    hand.style.visibility = "hidden";
-
-                    const phand = document.getElementById("playerhand");
-                    phand.style.visibility = "hidden";
+                    this.removehands();
                 }.bind(this), 2000);
             
             }
