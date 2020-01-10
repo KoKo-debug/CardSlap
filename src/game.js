@@ -430,7 +430,6 @@ export default class Game {
     tapMainPile() {
         if (this.goodSlap()) {
 
-            this.clearTimeout();
             const hand = document.getElementById("playerhand");
             hand.style.visibility = "visible";
 
@@ -727,6 +726,9 @@ export default class Game {
                     const hand = document.getElementById("comphand1");
                     hand.style.visibility = "hidden";
 
+                    const phand = document.getElementById("playerhand");
+                    phand.style.visibility = "hidden";
+
                 }.bind(this),2000);
             }
         }.bind(this), rand_time);
@@ -761,6 +763,9 @@ export default class Game {
 
                     const hand = document.getElementById("comphand2");
                     hand.style.visibility = "hidden";
+
+                    const phand = document.getElementById("playerhand");
+                    phand.style.visibility = "hidden";
                 }.bind(this),2000);
             }
         }.bind(this), rand_time);
@@ -796,6 +801,9 @@ export default class Game {
 
                     const hand = document.getElementById("comphand3");
                     hand.style.visibility = "hidden";
+
+                    const phand = document.getElementById("playerhand");
+                    phand.style.visibility = "hidden";
                 }.bind(this), 2000);
             
             }
