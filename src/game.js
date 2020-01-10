@@ -444,12 +444,12 @@ export default class Game {
     
                 this.removeMainPile();
                 this.clearTimeout();
+                this.removehands();
                 this.computerTurn();
     
                 const playerInfo = document.getElementById("playerInfoContainer");
                 playerInfo.innerHTML = "You have " + this.players[0][1].pile.length + " cards";
 
-                this.removehands();
             }.bind(this),2000);
 
 
@@ -692,6 +692,16 @@ export default class Game {
         hand1.style.visibility = "hidden";
         hand2.style.visibility = "hidden";
         hand3.style.visibility = "hidden";
+
+        const playerContainer = document.getElementsByClassName("player-container");
+        const comp1Container = document.getElementsByClassName("comp1-container");
+        const comp2Container = document.getElementsByClassName("comp2-container");
+        const comp3Container = document.getElementsByClassName("comp3-container");
+        
+        playerContainer[0].style.boxShadow = "none";
+        comp1Container[0].style.boxShadow = "none";
+        comp2Container[0].style.boxShadow = "none";
+        comp3Container[0].style.boxShadow = "none";
         
     }
 
@@ -724,16 +734,12 @@ export default class Game {
                     this.player.player1[2].turn = false;
     
                     this.clearTimeout();
+                    this.removehands();
                     this.computerTurn();
     
                     const comp1Pile = document.getElementById("comp1Pile");
                     comp1Pile.innerHTML = this.players[1][1].pile.length + " cards";
     
-                    const comp1Container = document.getElementsByClassName("comp1-container");
-                    comp1Container[0].style.boxShadow = "none";
-
-                    this.removehands();
-
                 }.bind(this),2000);
             }
         }.bind(this), rand_time);
@@ -757,15 +763,12 @@ export default class Game {
                     this.player.player1[2].turn = false;
                     
                     this.clearTimeout();
+                    this.removehands();
                     this.computerTurn();
     
                     const comp2Pile = document.getElementById("comp2Pile");
                     comp2Pile.innerHTML = this.players[2][1].pile.length + " cards";
-    
-                    const comp2Container = document.getElementsByClassName("comp2-container");
-                    comp2Container[0].style.boxShadow = "none";
 
-                    this.removehands();
                 }.bind(this),2000);
             }
         }.bind(this), rand_time);
@@ -790,15 +793,12 @@ export default class Game {
                     this.player.player1[2].turn = false;
 
                     this.clearTimeout();
+                    this.removehands();
                     this.computerTurn();
 
                     const comp3Pile = document.getElementById("comp3Pile");
                     comp3Pile.innerHTML = this.players[3][1].pile.length + " cards";
 
-                    const comp3Container = document.getElementsByClassName("comp3-container");
-                    comp3Container[0].style.boxShadow = "none";
-
-                    this.removehands();
                 }.bind(this), 2000);
             
             }
