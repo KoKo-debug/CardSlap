@@ -1,13 +1,108 @@
 body {
  border: 1px solid black;
- width: 96vw;
- height: 96vh;
+ width: 98.8vw;
+ height: 98vh;
+ position: relative;
+ display: flex;
 }
 
+#howToPlay {
+    margin-top: 50px;
+    margin-left: 50px;
+    padding: 10px;
+    background-color: white;
+    height: 800px;
+    width: 400px;
+    border: 1px solid white;
+    border-radius: 13px;
+
+}
+
+#card1 {
+    position: absolute;
+    border: 1px solid rgb(207, 202, 202);
+    background-color: rgb(230, 230, 230);
+    border-radius: 20px;
+    height: 120px;
+    width: 90px;
+    margin-left: 20px;
+}
+
+
+#card2 {
+    position: absolute;
+    border: 1px solid rgb(207, 202, 202);
+    border-radius: 20px;
+    background-color: rgb(230, 230, 230);
+    height: 120px;
+    width: 90px;
+    margin-left: 50px;
+}
+
+#card3 {
+    position: absolute;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: rgb(119, 226, 119);
+    height: 120px;
+    width: 90px;
+    margin-left: 80px;
+}
+
+#card4 {
+    position: absolute;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: rgb(119, 226, 119);
+    height: 120px;
+    width: 90px;
+    margin-left: 110px;
+}
+
+#cardValue {
+    font-size: 30px;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.sandwich {
+    margin-top: 150px;
+}
+
+
+#card2s {
+    position: absolute;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: rgb(119, 226, 119);
+    height: 120px;
+    width: 90px;
+    margin-left: 50px;
+}
+
+#card3s {
+    position: absolute;
+    border: 1px solid rgb(207, 202, 202);
+    border-radius: 20px;
+    background-color: rgb(230, 230, 230);
+    height: 120px;
+    width: 90px;
+    margin-left: 80px;
+}
+
+.rule-penalty {
+    margin-top: 250px;
+}
+
+.background {
+    z-index: -1;
+    position: absolute;
+    width: inherit;
+    height: inherit;
+}
 #cardTable {
-    border: 1px solid red;
     position: relative;
-    margin-left: 100px;
+    margin-left: 7%;
     margin-top:  50px;
     width: 800px;
     height: 750px;
@@ -18,14 +113,18 @@ body {
 }
 
 .comp2-container {
-    border: 1px solid purple;
     position: relative;
-    width: 170px;
-    height: 200px;
+    width: 150px;
+    height: 180px;
 }
 
 #comp2Pile {
     position: absolute;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 90px;
+    margin-left: 180px;
+    width: 300px;
 }
 
 .midTableSpan {
@@ -35,18 +134,22 @@ body {
 
 .comp1-container {
     position: relative;
-    border: 1px solid green;
-    width: 200px;
+    width: 180px;
     height: 140px;
+    margin-top: 5px;
+    margin-left: -6px;
 }
 
 #comp1Pile {
     position: absolute;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 60px;
+    margin-left: -100px;
 }
 
 .mid-container {
     position: relative;
-    border: 1px solid blue;
     width: 200px;
     height: 200px;
     margin: 0px 70px;
@@ -60,25 +163,76 @@ body {
     height: 100%;
     z-index: 100;
     cursor: pointer;
+    border: none;
+    outline: none;
 }
 
 .comp3-container {
     position: relative;
-    border: 1px solid orange;
-    width: 200px;
-    height: 140px;
+    width: 180px;
+    height: 150px;
+    margin-left: 14px;
+    margin-top: 10px;
 }
 
 #comp3Pile {
     position: absolute;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 60px;
+    margin-left: 210px;
+    width: 300px;
 }
 
 .player-container {
-    border: 1px solid rgb(194, 194, 0);
     position: relative;
-    width: 170px;
-    height: 200px;
+    width: 150px;
+    height: 180px;
+    margin-bottom: 5px;
+}
 
+#playerInfoContainer {
+    position: absolute;
+    font-size: 30px;
+    margin-left: 210px;
+    margin-top: 30px;
+    width: 300px;
+}
+
+#playerhand {
+    position: absolute;
+    max-width: 200px;
+    margin-top: -200px;
+    margin-left: -30px;
+    z-index: 100;
+    visibility: hidden;
+}
+
+#comphand1 {
+    position: absolute;
+    max-width: 200px;
+    margin-top: -10px;
+    margin-left: 190px;
+    z-index: 100;
+    visibility: hidden;
+}
+
+#comphand2 {
+    position: absolute;
+    max-width: 200px;
+    margin-top: 160px;
+    margin-left: -30px;
+    z-index: 100;
+    visibility: hidden;
+}
+
+#comphand3 {
+    position: absolute;
+    max-width: 200px;
+    margin-top: -10px;
+    margin-left: -190px;
+    z-index: 100;
+    visibility: hidden;
 }
 
 #playerPile {
@@ -89,6 +243,8 @@ body {
     cursor: pointer;
     z-index: 1000;
     background-color: transparent;
+    border: none;
+    outline: none;
 }
 
 
@@ -104,10 +260,22 @@ body {
     z-index: 1;
 }
 
+.img-container {
+    max-width: 170px;
+    max-height: 200px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid transparent;
+    border-radius: 20px;
+}
 
 .backCardV {
-    width: 170px;
-    height: 200px;
+    margin-top: -65px;
+    margin-left: -35px;
+    width: 240px;
+    height: 350px;
+
+    object-position: center;
 }
 
 .flip-container0 {
@@ -172,6 +340,7 @@ body {
     position: absolute;
     top: 25px;
     z-index: 1;
+    transform: rotate(180deg);
 }
 
 .flip-container2 {
@@ -215,13 +384,13 @@ body {
     animation: toFront 0.3s linear normal forwards;
     border: 1px solid black;
     border-radius: 20px;
-    bottom: -100px;
+    top: 40px;
     text-align: center;
     margin: auto;
 }
 
 .vertical.flip-container2 .flipper2 {
-    transform-origin: 0% 200px; /* half of height */
+    transform-origin: 0% 0%; /* half of height */
 }
 
 
@@ -236,13 +405,17 @@ body {
     top: 279px;
     left: 45px;
     z-index: 1;
-    transform: rotate(90deg);
+    transform: rotate(270deg);
 }
 
 
 .backCardH {
-    width: 170px;
-    height: 200px;
+    margin-top: -65px;
+    margin-left: -35px;
+    width: 240px;
+    height: 350px;
+
+    object-position: center;
 }
 
 .flip-container1 {
@@ -286,14 +459,14 @@ body {
     animation: toFront 0.3s linear normal forwards;
     border: 1px solid black;
     border-radius: 20px;
-    top: 70px;
+    top: -72px;
     text-align: center;
     margin: auto;
 }
 
 
 .horizontal.flip-container1 .flipper1 {
-    transform-origin: 0% 0%; /* half of height */
+    transform-origin: 0% 200px; /* half of height */
 }
 
 /* below is for computer 3 !~~~~~ */
@@ -305,7 +478,7 @@ body {
     top: 279px;
     right: 45px;
     z-index: 1;
-    transform: rotate(270deg);
+    transform: rotate(90deg);
 }
 
 
@@ -345,17 +518,17 @@ body {
 /*  change this for end position  */
 .back3 {
     position: absolute;
-    transform: rotateY(180deg);
+    transform: rotateY(-180deg);
     background-color: white;
     animation: toFront 0.3s linear normal forwards;
     border: 1px solid black;
     border-radius: 20px;
-    top: 68px;
+    bottom: -62px;
     text-align: center;
     margin: auto;
 }
 
 
 .horizontal.flip-container3 .flipper3 {
-    transform-origin: 0% 0%; /* half of height */
+    transform-origin: 0% 200px; /* half of height */
 }

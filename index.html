@@ -10,26 +10,86 @@
 </head>
 
 <body>
+    <img class="background" src="src/images//wood.jpeg">
     <script src="./dist/main.js"></script>
+
+    <section id="howToPlay">
+        <h1>How to play CardSlap</h3>
+        <h3>Tap the middle pile if :</h3>
+        <h3>Double</h3>
+        <div id="card1">
+            <span id="cardValue">
+                8
+            </span>
+        </div>
+        <div id="card2">
+            <span id="cardValue">
+                7
+            </span>
+        </div>
+        <div id="card3">
+            <span id="cardValue">
+                3
+            </span>
+        </div>
+        <div id="card4">
+            <span id="cardValue">
+                3
+            </span>
+        </div>
+            
+        <h3 class="sandwich">Sandwich</h3>
+        <div id="card1">
+            <span id="cardValue">
+                8
+            </span>
+        </div>
+        <div id="card2s">
+            <span id="cardValue">
+                3
+            </span>
+        </div>
+        <div id="card3s">
+            <span id="cardValue">
+                7
+            </span>
+        </div>
+        <div id="card4">
+            <span id="cardValue">
+                3
+            </span>
+        </div>
+        <h3 class="rule-penalty">
+            You will lose your top card if you tap the midde when
+             the above rules are not followed.
+        </h3>
+
+    </section>
     <section id="cardTable">
-
-
+        
         <span class="comp2-container">
-            <span id="comp2Pile">Computer 2's pile</span>
+            <img id="comphand2" src="src/images/comp2Hand.png" alt="">
+            <span id="comp2Pile"></span>
         </span>
         <span class="midTableSpan">
             <div class="comp1-container">
-                <span id="comp1Pile">Computer 1's pile</span>
+                <img id="comphand1" src="src/images/comp1Hand.png" alt="">
+                <span id="comp1Pile"></span>
             </div>
             <div class="mid-container">
-                <button type="button" name="button" id="mainPile">Main pile</button>
+                <button type="button" name="button" id="mainPile"></button>
             </div>
             <div class="comp3-container">
-                <span id="comp3Pile">Computer 3's pile</span>
+                <img id="comphand3" src="src/images/comp3Hand.png" alt="">
+                <span id="comp3Pile"></span>
             </div>
         </span>
         <span class="player-container">
-            <button type="button" name="button" id="playerPile">Player's pile</button>
+            <img id="playerhand" src="src/images/hand.png" alt="">
+            <button type="button" name="button" id="playerPile"></button>
+            <div id="playerInfoContainer">
+                
+            </div>
         </span>
     </section>
 

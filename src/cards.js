@@ -15,7 +15,7 @@ export default class Cards {
             return {name: this.name, suit: this.suit, value: this.value};
         };
 
-        let values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'];
+        let values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
         let suits = ['Clubs', 'Diamonds', 'Spades', 'Hearts'];
     
         for (let i = 0; i < suits.length; i++) {
