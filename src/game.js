@@ -349,7 +349,7 @@ export default class Game {
      
             
             for (let i = 0; i < flipperCollection.length; i++) {
-                flipperCollection[i].style.transform = 'rotateY(180deg)';
+                flipperCollection[i].style.transform = 'rotateX(180deg)';
             }
 
             
@@ -386,7 +386,7 @@ export default class Game {
             container[container.length - 1].style.zIndex = zIndex;
 
             for (let i = 0; i < flipperCollection.length; i++) {
-                flipperCollection[i].style.transform = 'rotateY(-180deg)';
+                flipperCollection[i].style.transform = 'rotateX(180deg)';
             }
 
             for (let i = 0; i < backCollection.length; i++) {
@@ -421,21 +421,16 @@ export default class Game {
         let div3 = document.getElementsByClassName("flip-container2");
         let div4 = document.getElementsByClassName("flip-container3");
 
-
-
-        for (let i = 0; i < div1.length + 1; i++) {
-
+        while (div1.length > 0) {
             div1[0].parentNode.removeChild(div1[0]);
         }
-
-        for (let i = 0; i < div2.length + 1; i++) {
+        while (div2.length > 0) {
             div2[0].parentNode.removeChild(div2[0]);
-
         }
-        for (let i = 0; i < div3.length + 1; i++) {
+        while (div3.length > 0) {
             div3[0].parentNode.removeChild(div3[0]);
         }
-        for (let i = 0; i < div4.length + 1; i++) {
+        while (div4.length > 0) {
             div4[0].parentNode.removeChild(div4[0]);
         }
 
