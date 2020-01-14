@@ -8,14 +8,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     
     const tapOwnPile = document.getElementById("playerPile");
-    tapOwnPile.addEventListener("click", game.tapOwnPile);
+    tapOwnPile.addEventListener("click", () => game.tapOwnPile());
     
     
     const tapMainPile = document.getElementById("mainPile");
-    tapMainPile.addEventListener("click", game.tapMainPile);
+    tapMainPile.addEventListener("click", () => game.tapMainPile());
     
     const restartButton = document.getElementById("restartButton");
-    restartButton.addEventListener("click", game.startGame);
+    restartButton.addEventListener("click", () => game.startGame());
 
     const playerInfo = document.getElementById("playerInfoContainer");
     playerInfo.innerHTML = "You have " + game.players[0][1].pile.length + " cards";
