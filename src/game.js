@@ -15,7 +15,7 @@ export default class Game {
         this.tapMainPile = this.tapMainPile.bind(this);
         this.tapOwnPile = this.tapOwnPile.bind(this);
         this.resetGame = this.resetGame.bind(this);
-
+        this.startGame = this.startGame.bind(this);
         
         this.comp1Func = this.comp1Func.bind(this);
         this.comp2Func = this.comp2Func.bind(this);
@@ -52,8 +52,10 @@ export default class Game {
                 this.players[i][1].pile.push(this.cards.deal());
             }
         }
-        console.log(this.players);
+        this.removeMainPile();
+        this.clearTimeout();
         this.loadTopCards();
+        this.removehands();
         this.computerTurn();
     }
     

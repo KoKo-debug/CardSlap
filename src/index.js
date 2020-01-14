@@ -14,7 +14,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const tapMainPile = document.getElementById("mainPile");
     tapMainPile.addEventListener("click", game.tapMainPile);
     
-    
+    const restartButton = document.getElementById("restartButton");
+    restartButton.addEventListener("click", game.startGame);
 
     const playerInfo = document.getElementById("playerInfoContainer");
     playerInfo.innerHTML = "You have " + game.players[0][1].pile.length + " cards";
