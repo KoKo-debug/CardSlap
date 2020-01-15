@@ -2,7 +2,8 @@ import Computer from './computer';
 import Player from './player';
 import Cards from './cards';
 import { removehands, loadTopCards } from './display';
-import { double, sandwich} from './rules';
+import { double, sandwich } from './rules';
+import { clearTimeout } from './clearTimeout';
 
 export default class Game {
     constructor() {
@@ -24,6 +25,7 @@ export default class Game {
         this.computerTurn = this.computerTurn.bind(this);
         
     }
+    
     
 
     resetGame() {
@@ -52,13 +54,13 @@ export default class Game {
             }
         }
         this.removeMainPile();
-        this.clearTimeout();
+        clearTimeout();
         loadTopCards(this.players);
         removehands();
         this.cardCount();
         this.computerTurn();
     }
-    
+
 
     cardCount() {
         const playerInfo = document.getElementById("playerInfoContainer");
@@ -83,7 +85,7 @@ export default class Game {
             } else {
                 this.PushAnimation("player");
                 loadTopCards(this.players,[0]);
-                this.clearTimeout();
+                clearTimeout();
                 this.mainPile.push(topCard);
                 this.computer.comp1[2].turn = true;
 
@@ -132,7 +134,7 @@ export default class Game {
                 this.player.player1[2].turn = true;
     
                 this.removeMainPile();
-                this.clearTimeout();
+                clearTimeout();
                 removehands();
                 this.computerTurn();
                 
@@ -146,15 +148,6 @@ export default class Game {
         } else {
             this.mainPile.unshift(this.player.player1[1].pile.pop());
             this.cardCount();
-        }
-    }
-
-
-    clearTimeout() {
-        let id = window.setTimeout(function() {}, 0);
-
-        while (id--) {
-            window.clearTimeout(id);
         }
     }
 
@@ -174,7 +167,7 @@ export default class Game {
                 this.computer.comp2[2].turn = true;
                 
                 loadTopCards(this.players,[1]);
-                this.clearTimeout();
+                clearTimeout();
                 this.computerTurn();
                 const comp1Container = document.getElementsByClassName("comp1-container");
                 comp1Container[0].style.boxShadow = "none";
@@ -194,7 +187,7 @@ export default class Game {
                 this.computer.comp3[2].turn = true;
                 
                 loadTopCards(this.players,[2]);
-                this.clearTimeout();
+                clearTimeout();
                 this.computerTurn();
                 const comp2Container = document.getElementsByClassName("comp2-container");
                 comp2Container[0].style.boxShadow = "none";
@@ -216,7 +209,7 @@ export default class Game {
                 
 
                 loadTopCards(this.players, [3]);
-                this.clearTimeout();
+                clearTimeout();
                 this.computerTurn();
 
                 const comp3Container = document.getElementsByClassName("comp3-container");
@@ -239,12 +232,9 @@ export default class Game {
        
             container[container.length - 1].style.zIndex = zIndex;
      
-            
             for (let i = 0; i < flipperCollection.length; i++) {
                 flipperCollection[i].style.transform = 'rotateX(-180deg)';
             }
-
-            
 
             for (let i = 0; i < backCollection.length; i++) {
                 backCollection[i].style.animationDelay = '0.3s';
@@ -374,7 +364,7 @@ export default class Game {
 
     allCompTake() {
         if (this.goodSlap()) {
-            this.clearTimeout();
+            clearTimeout();
         }
 
 
@@ -400,7 +390,7 @@ export default class Game {
                     this.computer.comp3[2].turn = false;
                     this.player.player1[2].turn = false;
     
-                    this.clearTimeout();
+                    clearTimeout();
                     removehands();
                     this.computerTurn();
     
@@ -429,7 +419,7 @@ export default class Game {
                     this.computer.comp3[2].turn = false;
                     this.player.player1[2].turn = false;
                     
-                    this.clearTimeout();
+                    clearTimeout();
                     removehands();
                     this.computerTurn();
     
@@ -458,7 +448,7 @@ export default class Game {
                     this.computer.comp3[2].turn = true;
                     this.player.player1[2].turn = false;
 
-                    this.clearTimeout();
+                    clearTimeout();
                     removehands();
                     this.computerTurn();
 

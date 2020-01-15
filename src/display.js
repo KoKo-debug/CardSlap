@@ -69,6 +69,81 @@
         imgContainer.appendChild(img1);
     }
 
+    export function PushAnimation(current, mainPile) {
+        if (current === "comp1") {
+
+            let backCollection = document.getElementsByClassName("back1");
+            let flipperCollection = document.getElementsByClassName("flipper1");
+            let container = document.getElementsByClassName("flip-container1");
+            let zIndex = mainPile.length;
+
+            container[container.length - 1].style.zIndex = zIndex;
+
+            for (let i = 0; i < flipperCollection.length; i++) {
+                flipperCollection[i].style.transform = 'rotateX(-180deg)';
+            }
+
+            for (let i = 0; i < backCollection.length; i++) {
+                backCollection[i].style.animationDelay = '0.3s';
+                backCollection[i].style.animation = 'toBack 0.3s linear normal forwards';
+            }
+
+        } else if (current === "comp2") {
+            let backCollection = document.getElementsByClassName("back2");
+            let flipperCollection = document.getElementsByClassName("flipper2");
+            let container = document.getElementsByClassName("flip-container2");
+            let zIndex = mainPile.length;
+
+            container[container.length - 1].style.zIndex = zIndex;
+
+            for (let i = 0; i < flipperCollection.length; i++) {
+                flipperCollection[i].style.transform = 'rotateX(180deg)';
+            }
+
+            for (let i = 0; i < backCollection.length; i++) {
+                backCollection[i].style.animationDelay = '0.3s';
+                backCollection[i].style.animation = 'toBack 0.3s linear normal forwards';
+            }
+
+        } else if (current === "comp3") {
+            let backCollection = document.getElementsByClassName("back3");
+            let flipperCollection = document.getElementsByClassName("flipper3");
+            let container = document.getElementsByClassName("flip-container3");
+            let zIndex = mainPile.length;
+
+            container[container.length - 1].style.zIndex = zIndex;
+
+            for (let i = 0; i < flipperCollection.length; i++) {
+                flipperCollection[i].style.transform = 'rotateX(-180deg)';
+            }
+
+            for (let i = 0; i < backCollection.length; i++) {
+                backCollection[i].style.animationDelay = '0.3s';
+                backCollection[i].style.animation = 'toBack 0.3s linear normal forwards';
+            }
+
+
+        } else if (current === "player") {
+            let backCollection = document.getElementsByClassName("back0");
+            let flipperCollection = document.getElementsByClassName("flipper0");
+            let container = document.getElementsByClassName("flip-container0");
+            let zIndex = mainPile.length;
+
+            container[container.length - 1].style.zIndex = zIndex;
+
+            for (let i = 0; i < flipperCollection.length; i++) {
+                flipperCollection[i].style.transform = 'rotateX(180deg)';
+
+            }
+
+            for (let i = 0; i < backCollection.length; i++) {
+                backCollection[i].style.animationDelay = '0.3s';
+                backCollection[i].style.animation = 'toBack 0.3s linear normal forwards';
+            }
+        }
+    }
+
+
     export function loadTopCards(players, playerIdx = [0, 1, 2, 3]) {
         let topCards = [];
         playerIdx.forEach(i => {
