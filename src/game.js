@@ -1,7 +1,8 @@
 import Computer from './computer';
 import Player from './player';
 import Cards from './cards';
-import Display from './display';
+import { removehands, loadTopCards } from './display';
+import { double, sandwich} from './rules';
 
 export default class Game {
     constructor() {
@@ -9,7 +10,6 @@ export default class Game {
         this.cards = new Cards();
         this.computer = new Computer();
         this.player = new Player();
-        this.display = new Display();
         this.players = [this.player.player1, this.computer.comp1, this.computer.comp2, this.computer.comp3];
         this.mainPile = [];
         this.tapMainPile = this.tapMainPile.bind(this);
@@ -53,8 +53,9 @@ export default class Game {
         }
         this.removeMainPile();
         this.clearTimeout();
-        this.display.loadTopCards(this.players);
-        this.removehands();
+        loadTopCards(this.players);
+        removehands();
+        this.cardCount();
         this.computerTurn();
     }
     
@@ -81,7 +82,7 @@ export default class Game {
                 this.gameOver();
             } else {
                 this.PushAnimation("player");
-                this.display.loadTopCards(this.players,[0]);
+                loadTopCards(this.players,[0]);
                 this.clearTimeout();
                 this.mainPile.push(topCard);
                 this.computer.comp1[2].turn = true;
@@ -102,37 +103,8 @@ export default class Game {
     }
 
 
-    double() {
-        if (
-            this.mainPile.slice(-2)[1] === undefined
-        ) {
-            return false;
-        } else if (
-            this.mainPile.slice(-2)[0].value === this.mainPile.slice(-2)[1].value
-        ) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    sandwich() {
-        if (
-            this.mainPile.slice(-3)[2] === undefined
-        ) {
-            return false;
-        } else if (
-            this.mainPile.slice(-3)[0].value === this.mainPile.slice(-3)[2].value
-        ) {
-            return true;
-        } else {
-            return false;
-        }
-
-    }
-
     goodSlap() {
-        if (this.double() || this.sandwich()) {
+        if (double(this.mainPile) || sandwich(this.mainPile)) {
             return true;
         } else {
             return false;
@@ -161,7 +133,7 @@ export default class Game {
     
                 this.removeMainPile();
                 this.clearTimeout();
-                this.removehands();
+                removehands();
                 this.computerTurn();
                 
                 this.cardCount();
@@ -201,7 +173,7 @@ export default class Game {
                 this.computer.comp1[2].turn = false;
                 this.computer.comp2[2].turn = true;
                 
-                this.display.loadTopCards(this.players,[1]);
+                loadTopCards(this.players,[1]);
                 this.clearTimeout();
                 this.computerTurn();
                 const comp1Container = document.getElementsByClassName("comp1-container");
@@ -221,7 +193,7 @@ export default class Game {
                 this.computer.comp2[2].turn = false;
                 this.computer.comp3[2].turn = true;
                 
-                this.display.loadTopCards(this.players,[2]);
+                loadTopCards(this.players,[2]);
                 this.clearTimeout();
                 this.computerTurn();
                 const comp2Container = document.getElementsByClassName("comp2-container");
@@ -243,7 +215,7 @@ export default class Game {
                 this.player.player1[2].turn = true;
                 
 
-                this.display.loadTopCards(this.players, [3]);
+                loadTopCards(this.players, [3]);
                 this.clearTimeout();
                 this.computerTurn();
 
@@ -355,7 +327,7 @@ export default class Game {
             div4[0].parentNode.removeChild(div4[0]);
         }
 
-        this.display.loadTopCards(this.players);
+        loadTopCards(this.players);
     }
 
     comp1Func() {
@@ -400,29 +372,6 @@ export default class Game {
         }
     }
 
-    removehands() {
-        const hand0 = document.getElementById("playerhand");
-        const hand1 = document.getElementById("comphand1");
-        const hand2 = document.getElementById("comphand2");
-        const hand3 = document.getElementById("comphand3");
-        
-        hand0.style.visibility = "hidden";
-        hand1.style.visibility = "hidden";
-        hand2.style.visibility = "hidden";
-        hand3.style.visibility = "hidden";
-
-        const playerContainer = document.getElementsByClassName("player-container");
-        const comp1Container = document.getElementsByClassName("comp1-container");
-        const comp2Container = document.getElementsByClassName("comp2-container");
-        const comp3Container = document.getElementsByClassName("comp3-container");
-        
-        playerContainer[0].style.boxShadow = "none";
-        comp1Container[0].style.boxShadow = "none";
-        comp2Container[0].style.boxShadow = "none";
-        comp3Container[0].style.boxShadow = "none";
-        
-    }
-
     allCompTake() {
         if (this.goodSlap()) {
             this.clearTimeout();
@@ -452,7 +401,7 @@ export default class Game {
                     this.player.player1[2].turn = false;
     
                     this.clearTimeout();
-                    this.removehands();
+                    removehands();
                     this.computerTurn();
     
                     const comp1Pile = document.getElementById("comp1Pile");
@@ -481,7 +430,7 @@ export default class Game {
                     this.player.player1[2].turn = false;
                     
                     this.clearTimeout();
-                    this.removehands();
+                    removehands();
                     this.computerTurn();
     
                     this.cardCount();
@@ -510,7 +459,7 @@ export default class Game {
                     this.player.player1[2].turn = false;
 
                     this.clearTimeout();
-                    this.removehands();
+                    removehands();
                     this.computerTurn();
 
                     this.cardCount();

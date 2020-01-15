@@ -1,15 +1,27 @@
 
+    export function removehands() {
+        const hand0 = document.getElementById("playerhand");
+        const hand1 = document.getElementById("comphand1");
+        const hand2 = document.getElementById("comphand2");
+        const hand3 = document.getElementById("comphand3");
 
-export default class Display {
+        hand0.style.visibility = "hidden";
+        hand1.style.visibility = "hidden";
+        hand2.style.visibility = "hidden";
+        hand3.style.visibility = "hidden";
 
-    constructor() {
+        const playerContainer = document.getElementsByClassName("player-container");
+        const comp1Container = document.getElementsByClassName("comp1-container");
+        const comp2Container = document.getElementsByClassName("comp2-container");
+        const comp3Container = document.getElementsByClassName("comp3-container");
 
-        this.loadTopCards = this.loadTopCards.bind(this);
+        playerContainer[0].style.boxShadow = "none";
+        comp1Container[0].style.boxShadow = "none";
+        comp2Container[0].style.boxShadow = "none";
+        comp3Container[0].style.boxShadow = "none";
     }
 
-
-
-    createElement(num, card, suit) {
+    export function createElements(num, card, suit) {
 
         let orientation;
         if (num === 0 || num === 2) {
@@ -46,7 +58,7 @@ export default class Display {
         return ({div1, div2, div3, div4, valueDiv, suitDiv});
     }
 
-    appendElements(cardTable, div1, div2, div3, div4, valueDiv, suitDiv, imgContainer, img1) {
+    export function appendElements(cardTable, div1, div2, div3, div4, valueDiv, suitDiv, imgContainer, img1) {
         cardTable.appendChild(div1);
         div1.appendChild(div2);
         div2.appendChild(div3);
@@ -57,7 +69,7 @@ export default class Display {
         imgContainer.appendChild(img1);
     }
 
-    loadTopCards(players, playerIdx = [0, 1, 2, 3]) {
+    export function loadTopCards(players, playerIdx = [0, 1, 2, 3]) {
         let topCards = [];
         playerIdx.forEach(i => {
             let pile = players[i][1].pile;
@@ -87,7 +99,7 @@ export default class Display {
 
             if (idx === 0) {
 
-                let divArray = this.createElement(idx, card, suit);
+                let divArray = createElements(idx, card, suit);
  
                 let div1 = divArray.div1;
                 let div2 = divArray.div2;
@@ -114,10 +126,10 @@ export default class Display {
                 img1.className = "backCardV";
                 img1.src = "src/images//cardBack.jpg";
 
-                this.appendElements(cardTable, div1, div2, div3, div4, valueDiv, suitDiv, imgContainer, img1);
+                appendElements(cardTable, div1, div2, div3, div4, valueDiv, suitDiv, imgContainer, img1);
 
             } else if (idx === 1) {
-                let divArray = this.createElement(idx, card, suit);
+                let divArray = createElements(idx, card, suit);
 
                 let div1 = divArray.div1;
                 let div2 = divArray.div2;
@@ -144,10 +156,10 @@ export default class Display {
                 img1.className = "backCardH";
                 img1.src = "src/images//cardBack.jpg";
 
-                this.appendElements(cardTable, div1, div2, div3, div4, valueDiv, suitDiv, imgContainer, img1);
+                appendElements(cardTable, div1, div2, div3, div4, valueDiv, suitDiv, imgContainer, img1);
            
             } else if (idx === 2) {
-                let divArray = this.createElement(idx, card, suit);
+                let divArray = createElements(idx, card, suit);
 
                 let div1 = divArray.div1;
                 let div2 = divArray.div2;
@@ -175,10 +187,10 @@ export default class Display {
                 img1.className = "backCardV";
                 img1.src = "src/images//cardBack.jpg";
 
-                this.appendElements(cardTable, div1, div2, div3, div4, valueDiv, suitDiv, imgContainer, img1);
+                appendElements(cardTable, div1, div2, div3, div4, valueDiv, suitDiv, imgContainer, img1);
             
             } else if (idx === 3) {
-                let divArray = this.createElement(idx, card, suit);
+                let divArray = createElements(idx, card, suit);
 
                 let div1 = divArray.div1;
                 let div2 = divArray.div2;
@@ -205,9 +217,7 @@ export default class Display {
                 img1.className = "backCardH";
                 img1.src = "src/images//cardBack.jpg";
 
-                this.appendElements(cardTable, div1, div2, div3, div4, valueDiv, suitDiv, imgContainer, img1);
+                appendElements(cardTable, div1, div2, div3, div4, valueDiv, suitDiv, imgContainer, img1);
             }
         });
     }
-
-}

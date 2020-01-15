@@ -9,4 +9,6 @@ export default class Computer {
         this.comp3.push({ name: "Computer 3" }, { pile: [] }, { turn: false });
 
     }
+
+    
 }
