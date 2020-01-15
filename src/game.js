@@ -42,7 +42,6 @@ export default class Game {
     
     startGame() {
         this.resetGame();
-        this.display.render(this.mainPile, this.players);
         this.cards.clear(); 
         this.cards.generate_deck();
         this.cards.shuffle();
@@ -93,7 +92,6 @@ export default class Game {
                 playerContainer[0].style.boxShadow = "none";
             }
     
-            this.display.render(this.mainPile, this.players);
 
             this.player.player1[2].turn = false;
             this.computer.comp1[2].turn = true;
@@ -177,8 +175,6 @@ export default class Game {
             this.mainPile.unshift(this.player.player1[1].pile.pop());
             this.cardCount();
         }
-
-        this.display.render(this.mainPile, this.players);
     }
 
 
@@ -201,7 +197,6 @@ export default class Game {
                 let topCard = this.computer.comp1[1].pile.pop();
                 this.PushAnimation("comp1");
                 this.mainPile.push(topCard);
-                this.display.render(this.mainPile, this.players);
 
                 this.computer.comp1[2].turn = false;
                 this.computer.comp2[2].turn = true;
@@ -222,7 +217,6 @@ export default class Game {
          
                 this.PushAnimation("comp2");
                 this.mainPile.push(topCard);
-                this.display.render(this.mainPile, this.players);
 
                 this.computer.comp2[2].turn = false;
                 this.computer.comp3[2].turn = true;
@@ -244,7 +238,6 @@ export default class Game {
                 let topCard = this.computer.comp3[1].pile.pop();
                 this.PushAnimation("comp3");
                 this.mainPile.push(topCard);
-                this.display.render(this.mainPile, this.players);
 
                 this.computer.comp3[2].turn = false;
                 this.player.player1[2].turn = true;
@@ -377,7 +370,6 @@ export default class Game {
         } else {
           this.delayedFunctionPush("comp1");
       }
-      this.display.render(this.mainPile, this.players);
     }
 
     comp2Func() {
@@ -392,7 +384,6 @@ export default class Game {
         } else {
             this.delayedFunctionPush("comp2");
         }
-        this.display.render(this.mainPile, this.players);
     }
 
     comp3Func() {
@@ -407,7 +398,6 @@ export default class Game {
         } else {
             this.delayedFunctionPush("comp3");
         }
-        this.display.render(this.mainPile, this.players);
     }
 
     removehands() {

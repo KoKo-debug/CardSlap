@@ -210,8 +210,4 @@ export default class Display {
         });
     }
 
-
-    render(mainPile, players) {
-
-    }
 }

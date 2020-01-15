@@ -1,6 +1,6 @@
 
 export default class Computer {
-    constructor(props) {
+    constructor() {
         this.comp1 = [];
         this.comp2 = [];
         this.comp3 = [];
