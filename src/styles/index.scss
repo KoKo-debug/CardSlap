@@ -12,7 +12,8 @@ body {
     padding: 10px;
     background-color: white;
     height: 800px;
-    width: 400px;
+    min-width: 400px;
+    max-width: 400px;
     border: 1px solid white;
     border-radius: 13px;
 
@@ -146,7 +147,8 @@ body {
     position: relative;
     margin-left: 7%;
     margin-top:  50px;
-    width: 800px;
+    min-width: 800px;
+    max-width: 800px;
     height: 750px;
     display: flex;
     flex-direction: column;

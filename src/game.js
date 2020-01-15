@@ -54,306 +54,24 @@ export default class Game {
         }
         this.removeMainPile();
         this.clearTimeout();
-        this.loadTopCards();
+        this.display.loadTopCards(this.players);
         this.removehands();
         this.computerTurn();
     }
     
 
-    loadTopCards(playerIdx = [0, 1, 2, 3]) {
-        let topCards = [];
-        playerIdx.forEach(i => {
-            let pile = this.players[i][1].pile;
-            let topCard = pile[pile.length -1 ] || "blank";
-            topCards[i] = topCard;
-        });
-    
-        topCards.forEach((card, idx) => {
-            const cardTable = document.getElementById("cardTable");
+    cardCount() {
+        const playerInfo = document.getElementById("playerInfoContainer");
+        playerInfo.innerHTML = "You have " + this.players[0][1].pile.length + " cards";
 
-            let suit;
-            let color;
+        const comp1Pile = document.getElementById("comp1Pile");
+        comp1Pile.innerHTML = this.players[1][1].pile.length + " cards";
 
-            if (card.suit === "Hearts") {
-                suit = '\&#9829';
-                color = "red";
-            } else if (card.suit === "Diamonds") {
-                suit = `\&#9830`;
-                color = "red";
-            } else if (card.suit === "Clubs") {
-                suit = `\&#9827`;
-                color = "black"
-            } else if (card.suit === "Spades") {
-                suit = `\&#9824`;
-                color = "black";
-            }
+        const comp2Pile = document.getElementById("comp2Pile");
+        comp2Pile.innerHTML = this.players[2][1].pile.length + " cards";
 
-            if (idx === 0) {
-                let div1 = document.createElement("div");
-                div1.className="vertical flip-container0";
-
-                let div2 = document.createElement("div");
-                div2.className="flipper0";
-
-                let div3 = document.createElement("div");
-                div3.className="front0";
-
-                let div4 = document.createElement("div");
-                div4.className="back0";
-
-                let valueDiv = document.createElement("div");
-                valueDiv.className = "value";
-
-                let suitDiv = document.createElement("div");
-                suitDiv.className = "suit";
-
-                let valueDiv2 = document.createElement("div");
-                valueDiv2.className = "value2";
-
-                let ValueContent = card.value;
-                let SuitContent = suit;
-
-
-                valueDiv.innerHTML = ValueContent;
-                suitDiv.innerHTML = SuitContent;
-                valueDiv2.innerHTML = ValueContent;
-
-                valueDiv.style.textAlign = "left";
-                valueDiv.style.fontSize = "35px";
-                valueDiv.style.color = color;
-                valueDiv.style.fontWeight = "900";
-                valueDiv.style.marginTop = "5px";
-                valueDiv.style.marginLeft = "10px";
-
-                suitDiv.style.marginTop = "14px";
-                suitDiv.style.fontSize = "70px";
-                suitDiv.style.color = color;
-
-                // valueDiv2.style.transform = "rotate(-180deg)";
-                // valueDiv2.style.marginTop = "11px";
-                // valueDiv2.style.marginRight = "10px";
-                // valueDiv2.style.fontSize = "35px";
-                // valueDiv2.style.fontWeight = "900";
-                // valueDiv2.style.textAlign = "left";
-                // valueDiv2.style.color = color;
-
-                let imgContainer = document.createElement("div");
-                imgContainer.className = "img-container";
-
-                let img1 = document.createElement("img");
-                img1.className="backCardV";
-                img1.src = "src/images//cardBack.jpg";
-                
-                cardTable.appendChild(div1);
-                div1.appendChild(div2);
-                div2.appendChild(div3);
-                div2.appendChild(div4);
-                div4.appendChild(valueDiv);
-                div4.appendChild(suitDiv);
-                // div4.appendChild(valueDiv2);
-                div3.appendChild(imgContainer);
-                imgContainer.appendChild(img1);
-
-                
-            } else if (idx === 1) {
-                let div1 = document.createElement("div");
-                div1.className = "horizontal flip-container1";
-
-                let div2 = document.createElement("div");
-                div2.className = "flipper1";
-
-                let div3 = document.createElement("div");
-                div3.className = "front1";
-
-                let div4 = document.createElement("div");
-                div4.className = "back1";
-
-
-                let valueDiv = document.createElement("div");
-                valueDiv.className = "value";
-
-                let suitDiv = document.createElement("div");
-                suitDiv.className = "suit";
-
-                let valueDiv2 = document.createElement("div");
-                valueDiv2.className = "value2";
-
-                
-                let ValueContent = card.value;
-                let SuitContent = suit;
-                
-                valueDiv.innerHTML = ValueContent;
-                suitDiv.innerHTML = SuitContent;
-                valueDiv2.innerHTML = ValueContent;
-
-                valueDiv.style.textAlign = "left";
-                valueDiv.style.fontSize = "35px";
-                valueDiv.style.color = color;
-                valueDiv.style.fontWeight = "900";
-                valueDiv.style.marginTop = "5px";
-                valueDiv.style.marginLeft = "10px";
-
-                suitDiv.style.marginTop = "14px";
-                suitDiv.style.fontSize = "70px";
-                suitDiv.style.color = color;
-
-                // valueDiv2.style.transform = "rotate(-180deg)";
-                // valueDiv2.style.marginTop = "11px";
-                // valueDiv2.style.marginRight = "10px";
-                // valueDiv2.style.fontSize = "35px";
-                // valueDiv2.style.fontWeight = "900";
-                // valueDiv2.style.textAlign = "left";
-                // valueDiv2.style.color = color;
-
-                let imgContainer = document.createElement("div");
-                imgContainer.className = "img-container";
-
-                let img1 = document.createElement("img");
-                img1.className = "backCardH";
-                img1.src = "src/images//cardBack.jpg";
-
-                cardTable.appendChild(div1);
-                div1.appendChild(div2);
-                div2.appendChild(div3);
-                div2.appendChild(div4);
-                div4.appendChild(valueDiv);
-                div4.appendChild(suitDiv);
-                // div4.appendChild(valueDiv2);
-                div3.appendChild(imgContainer);
-                imgContainer.appendChild(img1);
-            } else if (idx === 2) {
-                let div1 = document.createElement("div");
-                div1.className = "vertical flip-container2";
-
-                let div2 = document.createElement("div");
-                div2.className = "flipper2";
-
-                let div3 = document.createElement("div");
-                div3.className = "front2";
-
-                let div4 = document.createElement("div");
-                div4.className = "back2";
-
-                let valueDiv = document.createElement("div");
-                valueDiv.className = "value";
-
-                let suitDiv = document.createElement("div");
-                suitDiv.className = "suit";
-
-                let valueDiv2 = document.createElement("div");
-                valueDiv2.className = "value2";
-
-
-                let ValueContent = card.value;
-                let SuitContent = suit;
-
-                valueDiv.innerHTML = ValueContent;
-                suitDiv.innerHTML = SuitContent;
-                valueDiv2.innerHTML = ValueContent;
-
-                valueDiv.style.textAlign = "left";
-                valueDiv.style.fontSize = "35px";
-                valueDiv.style.color = color;
-                valueDiv.style.fontWeight = "900";
-                valueDiv.style.marginTop = "5px";
-                valueDiv.style.marginLeft = "10px";
-
-                suitDiv.style.marginTop = "14px";
-                suitDiv.style.fontSize = "70px";
-                suitDiv.style.color = color;
-
-                // valueDiv2.style.transform = "rotate(-180deg)";
-                // valueDiv2.style.marginTop = "11px";
-                // valueDiv2.style.marginRight = "10px";
-                // valueDiv2.style.fontSize = "35px";
-                // valueDiv2.style.fontWeight = "900";
-                // valueDiv2.style.textAlign = "left";
-                // valueDiv2.style.color = color;
-                
-                let imgContainer = document.createElement("div");
-                imgContainer.className = "img-container";
-
-                let img1 = document.createElement("img");
-                img1.className = "backCardV";
-                img1.src = "src/images//cardBack.jpg";
-
-                cardTable.appendChild(div1);
-                div1.appendChild(div2);
-                div2.appendChild(div3);
-                div2.appendChild(div4);
-                div4.appendChild(valueDiv);
-                div4.appendChild(suitDiv);
-                // div4.appendChild(valueDiv2);
-                div3.appendChild(imgContainer);
-                imgContainer.appendChild(img1);
-            } else if (idx === 3) {
-                let div1 = document.createElement("div");
-                div1.className = "horizontal flip-container3";
-
-                let div2 = document.createElement("div");
-                div2.className = "flipper3";
-
-                let div3 = document.createElement("div");
-                div3.className = "front3";
-
-                let div4 = document.createElement("div");
-                div4.className = "back3";
-
-                let valueDiv = document.createElement("div");
-                valueDiv.className = "value";
-
-                let suitDiv = document.createElement("div");
-                suitDiv.className = "suit";
-
-                let valueDiv2 = document.createElement("div");
-                valueDiv2.className = "value2";
-
-                let ValueContent = card.value;
-                let SuitContent = suit;
-
-                valueDiv.innerHTML = ValueContent;
-                suitDiv.innerHTML = SuitContent;
-
-                valueDiv2.innerHTML = ValueContent;
-
-                valueDiv.style.textAlign = "left";
-                valueDiv.style.fontSize = "35px";
-                valueDiv.style.color = color;
-                valueDiv.style.fontWeight = "900";
-                valueDiv.style.marginTop = "5px";
-                valueDiv.style.marginLeft = "10px";
-
-                suitDiv.style.marginTop = "14px";
-                suitDiv.style.fontSize = "70px";
-                suitDiv.style.color = color;
-
-                // valueDiv2.style.transform = "rotate(-180deg)";
-                // valueDiv2.style.marginTop = "11px";
-                // valueDiv2.style.marginRight = "10px";
-                // valueDiv2.style.fontSize = "35px";
-                // valueDiv2.style.fontWeight = "900";
-                // valueDiv2.style.textAlign = "left";
-                // valueDiv2.style.color = color;
-
-
-                let imgContainer = document.createElement("div");
-                imgContainer.className = "img-container";
-
-                let img1 = document.createElement("img");
-                img1.className = "backCardH";
-                img1.src = "src/images//cardBack.jpg";
-
-                cardTable.appendChild(div1);
-                div1.appendChild(div2);
-                div2.appendChild(div3);
-                div2.appendChild(div4);
-                div4.appendChild(valueDiv);
-                div4.appendChild(suitDiv);
-                // div4.appendChild(valueDiv2);
-                div3.appendChild(imgContainer);
-                imgContainer.appendChild(img1);
-            }
-        });
+        const comp3Pile = document.getElementById("comp3Pile");
+        comp3Pile.innerHTML = this.players[3][1].pile.length + " cards";
     }
 
     tapOwnPile() {
@@ -364,14 +82,13 @@ export default class Game {
                 this.gameOver();
             } else {
                 this.PushAnimation("player");
-                this.loadTopCards([0]);
+                this.display.loadTopCards(this.players,[0]);
                 this.clearTimeout();
                 this.mainPile.push(topCard);
                 this.computer.comp1[2].turn = true;
 
-                const playerInfo = document.getElementById("playerInfoContainer");
-                playerInfo.innerHTML = "You have " + this.players[0][1].pile.length + " cards";
-                
+                this.cardCount();
+
                 const playerContainer = document.getElementsByClassName("player-container");
                 playerContainer[0].style.boxShadow = "none";
             }
@@ -448,9 +165,8 @@ export default class Game {
                 this.clearTimeout();
                 this.removehands();
                 this.computerTurn();
-    
-                const playerInfo = document.getElementById("playerInfoContainer");
-                playerInfo.innerHTML = "You have " + this.players[0][1].pile.length + " cards";
+                
+                this.cardCount();
 
             }.bind(this),2000);
 
@@ -459,8 +175,7 @@ export default class Game {
             this.gameOver();
         } else {
             this.mainPile.unshift(this.player.player1[1].pile.pop());
-            const playerInfo = document.getElementById("playerInfoContainer");
-            playerInfo.innerHTML = "You have " + this.players[0][1].pile.length + " cards";
+            this.cardCount();
         }
 
         this.display.render(this.mainPile, this.players);
@@ -491,14 +206,13 @@ export default class Game {
                 this.computer.comp1[2].turn = false;
                 this.computer.comp2[2].turn = true;
                 
-                this.loadTopCards([1]);
+                this.display.loadTopCards(this.players,[1]);
                 this.clearTimeout();
                 this.computerTurn();
                 const comp1Container = document.getElementsByClassName("comp1-container");
                 comp1Container[0].style.boxShadow = "none";
 
-                const comp1Pile = document.getElementById("comp1Pile");
-                comp1Pile.innerHTML = this.players[1][1].pile.length + " cards";
+                this.cardCount();
 
             }.bind(this), rand_time);
         } else if (currentComp === "comp2") {
@@ -513,7 +227,7 @@ export default class Game {
                 this.computer.comp2[2].turn = false;
                 this.computer.comp3[2].turn = true;
                 
-                this.loadTopCards([2]);
+                this.display.loadTopCards(this.players,[2]);
                 this.clearTimeout();
                 this.computerTurn();
                 const comp2Container = document.getElementsByClassName("comp2-container");
@@ -536,7 +250,7 @@ export default class Game {
                 this.player.player1[2].turn = true;
                 
 
-                this.loadTopCards([3]);
+                this.display.loadTopCards(this.players, [3]);
                 this.clearTimeout();
                 this.computerTurn();
 
@@ -648,7 +362,7 @@ export default class Game {
             div4[0].parentNode.removeChild(div4[0]);
         }
 
-        this.loadTopCards();
+        this.display.loadTopCards(this.players);
     }
 
     comp1Func() {
@@ -780,8 +494,7 @@ export default class Game {
                     this.removehands();
                     this.computerTurn();
     
-                    const comp2Pile = document.getElementById("comp2Pile");
-                    comp2Pile.innerHTML = this.players[2][1].pile.length + " cards";
+                    this.cardCount();
 
                 }.bind(this),2000);
             }
@@ -810,8 +523,7 @@ export default class Game {
                     this.removehands();
                     this.computerTurn();
 
-                    const comp3Pile = document.getElementById("comp3Pile");
-                    comp3Pile.innerHTML = this.players[3][1].pile.length + " cards";
+                    this.cardCount();
 
                 }.bind(this), 2000);
             
