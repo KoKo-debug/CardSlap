@@ -1,7 +1,7 @@
 import Computer from './computer';
 import Player from './player';
 import Cards from './cards';
-import { removehands, loadTopCards } from './display';
+import { removehands, loadTopCards, cardCount } from './display';
 import { double, sandwich } from './rules';
 import { clearTimeout } from './clearTimeout';
 
@@ -57,23 +57,8 @@ export default class Game {
         clearTimeout();
         loadTopCards(this.players);
         removehands();
-        this.cardCount();
+        cardCount(this.players);
         this.computerTurn();
-    }
-
-
-    cardCount() {
-        const playerInfo = document.getElementById("playerInfoContainer");
-        playerInfo.innerHTML = "You have " + this.players[0][1].pile.length + " cards";
-
-        const comp1Pile = document.getElementById("comp1Pile");
-        comp1Pile.innerHTML = this.players[1][1].pile.length + " cards";
-
-        const comp2Pile = document.getElementById("comp2Pile");
-        comp2Pile.innerHTML = this.players[2][1].pile.length + " cards";
-
-        const comp3Pile = document.getElementById("comp3Pile");
-        comp3Pile.innerHTML = this.players[3][1].pile.length + " cards";
     }
 
     tapOwnPile() {
@@ -89,7 +74,7 @@ export default class Game {
                 this.mainPile.push(topCard);
                 this.computer.comp1[2].turn = true;
 
-                this.cardCount();
+                cardCount(this.players);
 
                 const playerContainer = document.getElementsByClassName("player-container");
                 playerContainer[0].style.boxShadow = "none";
@@ -138,7 +123,7 @@ export default class Game {
                 removehands();
                 this.computerTurn();
                 
-                this.cardCount();
+                cardCount(this.players);
 
             }.bind(this),2000);
 
@@ -147,7 +132,7 @@ export default class Game {
             this.gameOver();
         } else {
             this.mainPile.unshift(this.player.player1[1].pile.pop());
-            this.cardCount();
+            cardCount(this.players);
         }
     }
 
@@ -172,7 +157,7 @@ export default class Game {
                 const comp1Container = document.getElementsByClassName("comp1-container");
                 comp1Container[0].style.boxShadow = "none";
 
-                this.cardCount();
+                cardCount(this.players);
 
             }.bind(this), rand_time);
         } else if (currentComp === "comp2") {
@@ -423,7 +408,7 @@ export default class Game {
                     removehands();
                     this.computerTurn();
     
-                    this.cardCount();
+                    cardCount(this.players);
 
                 }.bind(this),2000);
             }
@@ -452,7 +437,7 @@ export default class Game {
                     removehands();
                     this.computerTurn();
 
-                    this.cardCount();
+                    cardCount(this.players);
 
                 }.bind(this), 2000);
             

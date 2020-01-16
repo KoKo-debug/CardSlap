@@ -166,9 +166,11 @@ body {
     position: absolute;
     font-size: 20px;
     font-weight: 700;
-    margin-top: 90px;
-    margin-left: 180px;
-    width: 300px;
+    margin-top: 5%;
+    margin-left: 22%;
+    width: auto;
+    z-index: 60;
+    color: white;
 }
 
 .midTableSpan {
@@ -188,8 +190,10 @@ body {
     position: absolute;
     font-size: 20px;
     font-weight: 700;
-    margin-top: 60px;
-    margin-left: -100px;
+    margin-top: -2%;
+    margin-left: 29%;
+    z-index: 60;
+    color: white;
 }
 
 .mid-container {
@@ -223,9 +227,11 @@ body {
     position: absolute;
     font-size: 20px;
     font-weight: 700;
-    margin-top: 60px;
-    margin-left: 210px;
-    width: 300px;
+    margin-top: -2%;
+    margin-left: 29%;
+    width: auto;
+    z-index: 60;
+    color: white;
 }
 
 .player-container {
@@ -238,9 +244,11 @@ body {
 #playerInfoContainer {
     position: absolute;
     font-size: 30px;
-    margin-left: 210px;
+    margin-left: 50%;
     margin-top: 30px;
-    width: 300px;
+    width: auto;
+    z-index: 60;
+    color: white;
 }
 
 #playerhand {

@@ -1,4 +1,19 @@
 
+    export function cardCount(players) {
+        const playerInfo = document.getElementById("playerInfoContainer");
+        playerInfo.innerHTML = "You have " + players[0][1].pile.length + " cards";
+
+        const comp1Pile = document.getElementById("comp1Pile");
+        comp1Pile.innerHTML = players[1][1].pile.length + " cards";
+
+        const comp2Pile = document.getElementById("comp2Pile");
+        comp2Pile.innerHTML = players[2][1].pile.length + " cards";
+
+        const comp3Pile = document.getElementById("comp3Pile");
+        comp3Pile.innerHTML = players[3][1].pile.length + " cards";
+    }
+    
+    
     export function removehands() {
         const hand0 = document.getElementById("playerhand");
         const hand1 = document.getElementById("comphand1");
