@@ -1,21 +1,24 @@
 body {
- border: 1px solid black;
- width: 98.8vw;
- height: 97.5vh;
+ width: 100vw;
+ height: 100vh;
  position: relative;
  display: flex;
+ margin: 0px;
+ overflow: hidden;
 }
+
+
 
 #howToPlay {
     margin-top: 2%;
     margin-left: 2%;
     padding: 10px;
     background-color: white;
-    height: auto;
+    height: 90%;
     width: 25%;
     border: 1px solid white;
     border-radius: 13px;
-
+    overflow: auto;
 }
 
 .title {
@@ -29,6 +32,7 @@ body {
 .double {
     color:rgb(101, 101, 226);
     height: 12%;
+    position: relative;
 }
 
 #card1 {
@@ -37,8 +41,8 @@ body {
     border: 1px solid rgb(207, 202, 202);
     background-color: rgb(230, 230, 230);
     border-radius: 10%;
-    height: 10%;
-    width: 4%;
+    height: 90%;
+    width: 20%;
     margin-left: 20px;
 }
 
@@ -49,8 +53,8 @@ body {
     border: 1px solid rgb(207, 202, 202);
     border-radius: 10%;
     background-color: rgb(230, 230, 230);
-    height: 10%;
-    width: 4%;
+    height: 90%;
+    width: 20%;
     margin-left: 55px;
 }
 
@@ -60,8 +64,8 @@ body {
     border: 1px solid black;
     border-radius: 10%;
     background-color: rgb(119, 226, 119);
-    height: 10%;
-    width: 4%;
+    height: 90%;
+    width: 20%;
     margin-left: 93px;
 }
 
@@ -71,8 +75,8 @@ body {
     border: 1px solid black;
     border-radius: 10%;
     background-color: rgb(119, 226, 119);
-    height: 10%;
-    width: 4%;
+    height: 90%;
+    width: 20%;
     margin-left: 133px;
 }
 
@@ -83,6 +87,7 @@ body {
 }
 
 .sandwich {
+    position: relative;
     color: rgb(101, 101, 226);
     height: 12%;
 }
@@ -93,8 +98,8 @@ body {
     border: 1px solid black;
     border-radius: 10%;
     background-color: rgb(119, 226, 119);
-    height: 10%;
-    width: 4%;
+    height: 90%;
+    width: 20%;
     margin-left: 55px;
 }
 
@@ -103,8 +108,8 @@ body {
     border: 1px solid rgb(207, 202, 202);
     border-radius: 10%;
     background-color: rgb(230, 230, 230);
-    height: 10%;
-    width: 4%;
+    height: 90%;
+    width: 20%;
     margin-left: 93px;
 }
 
@@ -114,6 +119,29 @@ body {
 
 .face-1 {
     font-size: 18px;
+    position: relative;
+    height: 22%;
+}
+
+#cardf {
+    position: absolute;
+    color: black;
+    border: 1px solid rgb(207, 202, 202);
+    background-color: rgb(230, 230, 230);
+    border-radius: 10%;
+    height: 60%;
+    width: 20%;
+    margin-left: 20px;
+}
+
+#card2f {
+    position: absolute;
+    border: 1px solid black;
+    border-radius: 10%;
+    background-color: rgb(119, 226, 119);
+    height: 60%;
+    width: 20%;
+    margin-left: 55px;
 }
 
 #card3f {
@@ -121,8 +149,8 @@ body {
     border: 1px solid black;
     border-radius: 10%;
     background-color: rgb(245, 117, 117);
-    height: 10%;
-    width: 4%;
+    height: 60%;
+    width: 20%;
     margin-left: 93px;
 }
 
@@ -131,13 +159,13 @@ body {
     border: 1px solid black;
     border-radius: 10%;
     background-color: rgb(245, 117, 117);
-    height: 10%;
-    width: 4%;
+    height: 60%;
+    width: 20%;
     margin-left: 133px;
 }
 
 .rule-penalty {
-    margin-top: 150px;
+    margin-top: 15%;
 }
 
 .background {
