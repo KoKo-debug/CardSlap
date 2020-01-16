@@ -7,13 +7,12 @@ body {
 }
 
 #howToPlay {
-    margin-top: 15px;
-    margin-left: 50px;
+    margin-top: 2%;
+    margin-left: 2%;
     padding: 10px;
     background-color: white;
-    height: 800px;
-    min-width: 400px;
-    max-width: 400px;
+    height: auto;
+    width: 25%;
     border: 1px solid white;
     border-radius: 13px;
 
@@ -29,47 +28,52 @@ body {
 
 .double {
     color:rgb(101, 101, 226);
+    height: 12%;
 }
 
 #card1 {
     position: absolute;
+    color: black;
     border: 1px solid rgb(207, 202, 202);
     background-color: rgb(230, 230, 230);
-    border-radius: 20px;
-    height: 120px;
-    width: 90px;
+    border-radius: 10%;
+    height: 10%;
+    width: 4%;
     margin-left: 20px;
 }
 
 
 #card2 {
+    color: black;
     position: absolute;
     border: 1px solid rgb(207, 202, 202);
-    border-radius: 20px;
+    border-radius: 10%;
     background-color: rgb(230, 230, 230);
-    height: 120px;
-    width: 90px;
-    margin-left: 60px;
+    height: 10%;
+    width: 4%;
+    margin-left: 55px;
 }
 
 #card3 {
+    color: black;
     position: absolute;
     border: 1px solid black;
-    border-radius: 20px;
+    border-radius: 10%;
     background-color: rgb(119, 226, 119);
-    height: 120px;
-    width: 90px;
-    margin-left: 100px;
+    height: 10%;
+    width: 4%;
+    margin-left: 93px;
 }
 
 #card4 {
+    color: black;
     position: absolute;
     border: 1px solid black;
-    border-radius: 20px;
+    border-radius: 10%;
     background-color: rgb(119, 226, 119);
-    height: 120px;
-    width: 90px;
-    margin-left: 140px;
+    height: 10%;
+    width: 4%;
+    margin-left: 133px;
 }
 
 #cardValue {
@@ -80,32 +84,31 @@ body {
 
 .sandwich {
     color: rgb(101, 101, 226);
-    margin-top: 150px;
+    height: 12%;
 }
 
 
 #card2s {
     position: absolute;
     border: 1px solid black;
-    border-radius: 20px;
+    border-radius: 10%;
     background-color: rgb(119, 226, 119);
-    height: 120px;
-    width: 90px;
-    margin-left: 60px;
+    height: 10%;
+    width: 4%;
+    margin-left: 55px;
 }
 
 #card3s {
     position: absolute;
     border: 1px solid rgb(207, 202, 202);
-    border-radius: 20px;
+    border-radius: 10%;
     background-color: rgb(230, 230, 230);
-    height: 120px;
-    width: 90px;
-    margin-left: 100px;
+    height: 10%;
+    width: 4%;
+    margin-left: 93px;
 }
 
 .face {
-    margin-top: 150px;
     color: rgb(101, 101, 226);
 }
 
@@ -116,21 +119,21 @@ body {
 #card3f {
     position: absolute;
     border: 1px solid black;
-    border-radius: 20px;
+    border-radius: 10%;
     background-color: rgb(245, 117, 117);
-    height: 120px;
-    width: 90px;
-    margin-left: 100px;
+    height: 10%;
+    width: 4%;
+    margin-left: 93px;
 }
 
 #card4f {
     position: absolute;
     border: 1px solid black;
-    border-radius: 20px;
+    border-radius: 10%;
     background-color: rgb(245, 117, 117);
-    height: 120px;
-    width: 90px;
-    margin-left: 140px;
+    height: 10%;
+    width: 4%;
+    margin-left: 133px;
 }
 
 .rule-penalty {
@@ -147,9 +150,8 @@ body {
     position: relative;
     margin-left: 7%;
     margin-top:  50px;
-    min-width: 800px;
-    max-width: 800px;
-    height: 750px;
+    max-width: 55%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -176,14 +178,16 @@ body {
 .midTableSpan {
     display: flex;
     align-items: center;
+    width: 100%;
+    height: 30%;
 }
 
 .comp1-container {
     position: relative;
-    width: 180px;
-    height: 140px;
-    margin-top: 5px;
-    margin-left: -6px;
+    width: 23%;
+    height: 68%;
+    margin-top: 0%;
+    margin-left: 2.5%;
 }
 
 #comp1Pile {
@@ -198,9 +202,9 @@ body {
 
 .mid-container {
     position: relative;
-    width: 200px;
-    height: 200px;
-    margin: 0px 70px;
+    width: 35%;
+    height: 100%;
+    margin: auto;
 }
 
 #mainPile {
@@ -217,10 +221,10 @@ body {
 
 .comp3-container {
     position: relative;
-    width: 180px;
-    height: 150px;
-    margin-left: 14px;
-    margin-top: 10px;
+    width: 23%;
+    height: 68%;
+    margin-right: 2.5%;
+    margin-top: 0%;
 }
 
 #comp3Pile {
@@ -236,16 +240,15 @@ body {
 
 .player-container {
     position: relative;
-    width: 150px;
-    height: 180px;
+    width: 20%;
+    height: 25%;
     margin-bottom: 5px;
 }
 
 #playerInfoContainer {
     position: absolute;
     font-size: 30px;
-    margin-left: 50%;
-    margin-top: 30px;
+    margin-left: 12%;
     width: auto;
     z-index: 60;
     color: white;
@@ -290,8 +293,10 @@ body {
 #playerPile {
     position: absolute;
     appearance: none;
-    width: 100%;
-    height: 100%;
+    margin-top: -8%;
+    margin-left: -8%;
+    width: 120%;
+    height: 120%;
     cursor: pointer;
     z-index: 1000;
     background-color: transparent;
@@ -308,13 +313,13 @@ body {
 /* changed top to bottom  */
 .vertical.flip-container0 {
     position: absolute;
-    bottom: 25px;
+    bottom: 3%;
     z-index: 1;
 }
 
 .img-container {
-    max-width: 170px;
-    max-height: 200px;
+    max-width: 100%;
+    max-height: 100%;
     position: relative;
     overflow: hidden;
     border: 1px solid transparent;
@@ -322,8 +327,8 @@ body {
 }
 
 .backCardV {
-    margin-top: -65px;
-    margin-left: -35px;
+    margin-top: -40%;
+    margin-left: -21%;
     width: 240px;
     height: 350px;
 
@@ -334,13 +339,15 @@ body {
     perspective: 1000px;
 }
 
-.flip-container0, .front0, .back0 {
-    width: 170px;
-    height: 200px;
+.flip-container0 {
+    width: 22%;
+    height: 28%;
 }
 
 /* flip speed goes here */
 .flipper0 {
+    width: 100%;
+    height: 100%;
     transition: 0.6s;
     transform-style: preserve-3d;
     position: relative;
@@ -349,6 +356,8 @@ body {
 /* hide back of pane during swap */
 .front0, .back0 {
     position: absolute;
+    width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
     backface-visibility:hidden;
@@ -371,7 +380,7 @@ body {
     animation: toFront 0.3s linear normal forwards;
     border: 1px solid black;
     border-radius: 20px;
-    bottom: -300px;
+    bottom: -46%;
     text-align: center;
     margin: auto;
 }
@@ -454,8 +463,8 @@ body {
 /* changed top to bottom  */
 .horizontal.flip-container1 {
     position: absolute;
-    top: 279px;
-    left: 45px;
+    top: 36%;
+    left: 3%;
     z-index: 1;
     transform: rotate(270deg);
 }
@@ -472,15 +481,15 @@ body {
 
 .flip-container1 {
     perspective: 1000px;
-}
+    width: 22%;
+    height: 28%;
 
-.flip-container1, .front1, .back1 {
-    width: 170px;
-    height: 200px;
 }
 
 /* flip speed goes here */
 .flipper1 {
+    width: 100%;
+    height: 100%;
     transition: 0.6s;
     transform-style: preserve-3d;
     position: relative;
@@ -489,6 +498,8 @@ body {
 /* hide back of pane during swap */
 .front1, .back1 {
     position: absolute;
+    width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
     backface-visibility:hidden;
@@ -527,8 +538,8 @@ body {
 /* changed top to bottom  */
 .horizontal.flip-container3 {
     position: absolute;
-    top: 279px;
-    right: 45px;
+    top: 36%;
+    right: 3%;
     z-index: 1;
     transform: rotate(90deg);
 }

@@ -26,8 +26,6 @@ export default class Game {
         
     }
     
-    
-
     resetGame() {
         this.cards = new Cards();
         this.computer = new Computer();
@@ -35,7 +33,6 @@ export default class Game {
         this.players = [this.player.player1, this.computer.comp1, this.computer.comp2, this.computer.comp3];
         this.mainPile = [];
     }
-
 
     chooseStartPlayer() {
         let rand_idx = Math.floor(Math.random() * this.players.length);
