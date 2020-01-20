@@ -7,6 +7,18 @@ body {
  overflow: hidden;
 }
 
+#restartButton {
+    margin-top: 10%;
+    font-weight: 700;
+    appearance: none;
+    border: 1px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 50px;
+    width: 100px;
+    background-color: white;
+    
+}
 
 
 #howToPlay {
