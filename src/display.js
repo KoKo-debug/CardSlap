@@ -168,7 +168,7 @@
         });
 
         topCards.forEach((card, idx) => {
-            const cardTable = document.getElementById("cardTable");
+            let cardTable = document.getElementById("cardTable");
 
             let suit;
             let color;
@@ -220,6 +220,8 @@
 
             } else if (idx === 1) {
                 let divArray = createElements(idx, card, suit);
+                cardTable = document.getElementsByClassName("comp1-container")[0];
+                
 
                 let div1 = divArray.div1;
                 let div2 = divArray.div2;

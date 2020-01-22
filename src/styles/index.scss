@@ -507,8 +507,8 @@ body {
 /* changed top to bottom  */
 .horizontal.flip-container1 {
     position: absolute;
-    top: 36%;
-    left: 3%;
+    top: 0%;
+    left: 0%;
     z-index: 1;
     transform: rotate(270deg);
 }
@@ -525,8 +525,8 @@ body {
 
 .flip-container1 {
     perspective: 1000px;
-    width: 22%;
-    height: 28%;
+    width: 100%;
+    height: 100%;
 
 }
 
